@@ -3,6 +3,7 @@ import Link from "next/link";
 import MessageInputField from "../components/messageInputField";
 import Message from "../components/message";
 import { useState, useEffect } from "react";
+import Menu from "../components/menu";
 
 // {
 //   client: "user",
@@ -46,6 +47,7 @@ const messages_json = [];
 
 export default function Home() {
   const [chat, setChat] = useState(messages_json);
+  const [faiss, setFaiss] = useState("");
 
   async function onMessageSent(text) {
     console.log(text);
@@ -57,7 +59,12 @@ export default function Home() {
     setChat((chat) => [...chat, usr_msg]);
     const chat_msg = await fetch("/api/message", {
       method: "POST",
-      body: JSON.stringify(usr_msg),
+      body: JSON.stringify({
+        message: usr_msg,
+        FAISS: {
+          FAISS_SAVE_DIR: faiss,
+        },
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -78,6 +85,7 @@ export default function Home() {
 
   return (
     <>
+      <Menu setFaiss={setFaiss} />
       <div className="flex w-screen flex-col items-center">
         <div className="m-10 flex min-h-full w-7/12 flex-col rounded-2xl bg-gray-100 bg-opacity-70 p-10">
           {chat.map((msg, i) => (

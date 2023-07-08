@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UploadFile from "./uploadFile";
 
-export default function UploadFileModal() {
+export default function UploadFileModal({ setFaiss }) {
   const [showModal, setShowModal] = React.useState(false);
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
@@ -12,29 +12,21 @@ export default function UploadFileModal() {
     setIsFilePicked(true);
   };
 
-  function handleSubmission() {
+  async function handleSubmission() {
     const fileInput = document.getElementById("pdfInput");
 
     const formData = new FormData();
     formData.append("file", selectedFile);
-    var contents = Array.from(formData.entries());
-    console.log(contents);
-    console.log("1");
-    console.log(typeof selectedFile);
-    console.log(typeof formData);
-    // console.log(formData);
-    // console.log(selectedFile);
-    fetch("api/document", {
+
+    const result = await fetch("api/document", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
-      .then((result) => {
-        console.log("Success:", result);
-      })
       .catch((error) => {
         console.error("Error:", error);
       });
+    setFaiss(result.FAISS_SAVE_DIR);
     setShowModal(false);
   }
 

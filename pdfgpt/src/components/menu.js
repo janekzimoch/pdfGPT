@@ -5,19 +5,8 @@ import pdfgpt from "../../public/pdfgpt.png";
 import UploadFileModal from "./uploadFileModal";
 import { useState } from "react";
 
-export default function Menu() {
+export default function Menu({ setFaiss }) {
   const route = useRouter();
-
-  // const changeHandler = (event) => {
-  // 	setSelectedFile(event.target.files[0]);
-  // 	setIsFilePicked(true);
-  // };
-
-  function submitDocument(event) {
-    // setSelectedFile(event.target.files[0]);
-    // setIsFilePicked(true);
-    return null;
-  }
 
   return (
     <div>
@@ -32,7 +21,7 @@ export default function Menu() {
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="mr-10 mt-4 flex flex-col">
               <li>
-                <UploadFileModal />
+                <UploadFileModal setFaiss={setFaiss} />
                 {/* <Link
                   href={"/"}
                   className="rounded-xl bg-sky-500 px-4 py-2 font-bold text-white hover:bg-sky-400"
