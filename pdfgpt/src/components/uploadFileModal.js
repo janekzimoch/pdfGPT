@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UploadFile from "./uploadFile";
 
-export default function UploadFileModal({ setFaiss }) {
+export default function UploadFileModal({ add_document }) {
   const [showModal, setShowModal] = React.useState(false);
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
@@ -13,27 +13,18 @@ export default function UploadFileModal({ setFaiss }) {
   };
 
   async function handleSubmission() {
-    const fileInput = document.getElementById("pdfInput");
-
     const formData = new FormData();
     formData.append("file", selectedFile);
-
-    const result = await fetch("api/document", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-    setFaiss(result.FAISS_SAVE_DIR);
+    console.log(selectedFile);
+    console.log(selectedFile.name);
+    await add_document(formData, [selectedFile.name]);
     setShowModal(false);
   }
 
   return (
     <>
       <button
-        className="rounded-xl bg-sky-500 px-4 py-2 font-bold text-white hover:bg-sky-400"
+        className="h-10 rounded-xl bg-sky-500 px-4 py-2 font-bold text-white hover:bg-sky-400"
         type="button"
         onClick={() => setShowModal(true)}
       >

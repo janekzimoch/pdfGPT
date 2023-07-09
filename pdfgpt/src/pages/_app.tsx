@@ -3,6 +3,9 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import "~/styles/globals.css";
 import Layout from "../components/layout";
+const fs = require('fs');
+
+
 
 
 const MyApp: AppType<{ session: Session | null }> = ({

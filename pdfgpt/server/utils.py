@@ -9,13 +9,14 @@ def remove_footnote(text):
     return text
 
 
-def read_PDF_PyPDF(path_to_pdf):
+def read_PDF_PyPDF(pdfFileObj):
     ''' read PDF and store it as a list of strings where every string is a page. '''
     # note it would be good to clean the text a bit,
     # for example all parts of a page get saved, while we don't really want the bottom part.
     # there are also some errors where spaces are missing.
     # there are spaces missing from in between words too... i.e. lurched-across, a-fluttering - hopefully chatgpt will manage
-    pdfFileObj = open(path_to_pdf, 'rb')
+    # pdfFileObj = open(path_to_pdf, 'rb')
+    print(pdfFileObj)
     pdfReader = pypdf.PdfReader(pdfFileObj)
     num_pages = len(pdfReader.pages)
     list_of_texts = []
