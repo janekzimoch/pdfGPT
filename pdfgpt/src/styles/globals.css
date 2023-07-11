@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbarV::-webkit-scrollbar {
+    /* Change the background color */
+    opacity: 1;
+    width: 8px;
+  }
+
+.scrollbarV::-webkit-scrollbar-thumb {
+    /* Change the background color */
+    background-color: rgb(179, 179, 179);
+    border-radius: 4px;
+  }
+
+  .scrollbarV::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(200, 200, 200);
+  }

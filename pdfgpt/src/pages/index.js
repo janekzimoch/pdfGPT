@@ -8,6 +8,7 @@ import UploadedDocument from "../components/uploadedDocument";
 // const fs = require("fs");
 // import fs from "fs";
 // var rimraf = require("rimraf");
+import axios from "axios";
 
 export default function Home() {
   const [chat, setChat] = useState([]);
@@ -74,6 +75,8 @@ export default function Home() {
       .catch((error) => {
         console.error("Error:", error);
       });
+    console.log("1");
+    console.log(result);
     // add document to the document list
     console.log(result.FAISS_SAVE_DIR);
     setDocuments([...documents, ...fileNames]);

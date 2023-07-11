@@ -73,17 +73,20 @@ def send_message():
 
 @app.route('/api/document', methods=['POST'])
 def upload_document():
-    pdf_file = eval(request.data.decode("utf-8"))
-    # list_of_texts = utils.read_PDF_PyPDF(pdf_file)
-    list_of_texts = utils.read_PDF_PyMuPDF(pdf_file['filepath'])
-    list_of_texts = utils.remove_end_of_lines(list_of_texts)
-    list_of_texts = utils.remove_short_chunks(list_of_texts)
-    print('Number of paragraphs loaded: ', len(list_of_texts))
-    print('creating FAISS...')
-    docsearch: FAISS = FAISS.from_texts(list_of_texts, embeddings)
-    FAISS_SAVE_DIR = f"./public/FAISS/{pdf_file['filename']}"
-    docsearch.save_local(FAISS_SAVE_DIR)
-    data = {"FAISS_SAVE_DIR": FAISS_SAVE_DIR}
+    pdf_files = eval(request.data.decode("utf-8"))
+    faiss_paths = []
+    for pdf_file, pdf_name in zip(pdf_files['filepath'], pdf_files['filename']):
+        list_of_texts = utils.read_PDF_PyMuPDF(pdf_file)
+        list_of_texts = utils.remove_end_of_lines(list_of_texts)
+        list_of_texts = utils.remove_short_chunks(list_of_texts)
+        print('Number of paragraphs loaded: ', len(list_of_texts))
+        print('creating FAISS...')
+        docsearch: FAISS = FAISS.from_texts(list_of_texts, embeddings)
+        FAISS_SAVE_DIR = f"./public/FAISS/{pdf_name}"
+        print(FAISS_SAVE_DIR, '\n')
+        docsearch.save_local(FAISS_SAVE_DIR)
+        faiss_paths.append(FAISS_SAVE_DIR)
+    data = {"FAISS_SAVE_DIR": faiss_paths}
     response = app.response_class(
         response=json.dumps(data),
         status=200,
