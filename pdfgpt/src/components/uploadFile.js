@@ -14,7 +14,7 @@ export default function UploadFile({
       <div className={`flex w-full items-center justify-center ${shadow}`}>
         <label
           htmlFor="dropzone-file"
-          className={`dark:hover:bg-bray-800 justify-top scrollbarV flex h-60 w-full cursor-pointer flex-col items-center overflow-auto rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 pt-10 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600`}
+          className={`dark:hover:bg-bray-800 justify-top flex h-60 w-full cursor-pointer flex-col items-center overflow-auto rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 pt-10 scrollbar hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-gray-500 dark:hover:bg-gray-600`}
         >
           <div className="flex flex-col items-center justify-center pb-6 pt-5">
             <svg

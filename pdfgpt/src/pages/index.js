@@ -5,10 +5,6 @@ import Message from "../components/message";
 import { useState, useEffect, use } from "react";
 import UploadFileModal from "../components/uploadFileModal";
 import UploadedDocument from "../components/uploadedDocument";
-// const fs = require("fs");
-// import fs from "fs";
-// var rimraf = require("rimraf");
-import axios from "axios";
 
 export default function Home() {
   const [chat, setChat] = useState([]);
@@ -24,6 +20,8 @@ export default function Home() {
       message: text,
     };
     setChat((chat) => [...chat, usr_msg]);
+    console.log("1");
+    console.log(faiss);
     const chat_msg = await fetch("/api/message", {
       method: "POST",
       body: JSON.stringify({
@@ -75,33 +73,35 @@ export default function Home() {
       .catch((error) => {
         console.error("Error:", error);
       });
-    console.log("1");
-    console.log(result);
+
     // add document to the document list
     console.log(result.FAISS_SAVE_DIR);
     setDocuments([...documents, ...fileNames]);
-    setFaiss([...faiss, result.FAISS_SAVE_DIR]);
-    console.log(faiss);
+    setFaiss([...faiss, ...result.FAISS_SAVE_DIR]);
   }
 
   return (
     <div className="max-w-screen h-screen w-screen">
-      <div className="grid h-[75%] w-screen grid-cols-4 gap-4">
+      <div className="grid h-[80%] w-screen grid-cols-4 gap-4">
+        {/* this empty div below is needed to fill up left most column of 4 */}
         <div></div>
-
-        <div className="col-span-2 w-full flex-col items-center">
-          <div className="flex min-h-[20%] w-full flex-col rounded-2xl bg-gray-100 bg-opacity-70 px-10 py-5">
-            {chat.map((msg, i) => (
-              <Message
-                msg={msg}
-                key={msg.time}
-                is_last_message={is_last_message(i)}
-              />
-            ))}
+        <div className="col-span-2">
+          <div className="relative h-[95%]">
+            <div className="absolute inset-0 w-full items-center overflow-auto rounded-2xl bg-gray-100 bg-opacity-50 scrollbar">
+              <div className="relative h-full max-h-[50%] min-h-[20%] w-full flex-col px-10 py-5">
+                {chat.map((msg, i) => (
+                  <Message
+                    msg={msg}
+                    key={i}
+                    is_last_message={is_last_message(i)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
+          <div className="relative mx-6 mb-8 mt-6 border-t-2 bg-gray-100 opacity-30"></div>
           <MessageInputField onMessageSent={onMessageSent} />
         </div>
-
         <div className="px-5">
           <div className="flex h-fit flex-col items-center justify-center rounded-2xl bg-gray-100 bg-opacity-70 p-3">
             <div className="">

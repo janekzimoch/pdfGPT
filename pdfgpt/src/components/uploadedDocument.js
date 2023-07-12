@@ -4,7 +4,7 @@ export default function UploadedDocument({ index, doc_name, remove_document }) {
       <span className="ml-4 break-all">{doc_name}</span>
       <span className="m-4" onClick={() => remove_document(index)}>
         <svg
-          class="h-2 w-2"
+          className="h-2 w-2"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

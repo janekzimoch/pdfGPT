@@ -25,7 +25,7 @@ export default function Message(props) {
                   props.is_last_message ? `rounded-${rounded_none}-none` : ""
                 } bg-gray-300 px-4 py-2 text-gray-600`}
               >
-                {props.msg.message}
+                <p className="break-all">{props.msg.message}</p>
               </span>
             </div>
           </div>

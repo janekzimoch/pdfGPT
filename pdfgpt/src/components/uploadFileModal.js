@@ -45,7 +45,7 @@ export default function UploadFileModal({ add_document }) {
   return (
     <>
       <button
-        className="h-10 rounded-xl bg-sky-500 px-4 py-2 font-bold text-white hover:bg-sky-400"
+        className="h-10 rounded-xl bg-[#6096B4] px-4 py-2 font-bold text-white hover:bg-[#93BFCF]"
         type="button"
         onClick={() => setShowModal(true)}
       >

@@ -18,10 +18,9 @@ export default function MessageInputField({ onMessageSent }) {
 
   return (
     <>
-      <div className="absolute bottom-10 w-1/2">
-        <div className="relative mx-6 mb-8 border-t-2 border-gray-200"></div>
+      <div className="absolute bottom-10 w-[50%]">
         <div className="relative mx-12 flex">
-          <span className="relative inset-y-0 flex w-full items-start rounded-xl bg-gray-200 bg-opacity-80 text-gray-600 placeholder-gray-600">
+          <span className="relative inset-y-0 flex w-full items-start rounded-xl bg-gray-200 text-gray-600 placeholder-gray-600">
             <textarea
               name="user_input_message"
               placeholder="Write your message!"
@@ -36,7 +35,7 @@ export default function MessageInputField({ onMessageSent }) {
               <button
                 type="button"
                 onClick={buttonClicked}
-                className="m-3 inline-flex resize-none justify-center rounded-xl bg-sky-500 px-4 py-3 text-white transition duration-500 ease-in-out hover:bg-sky-400 focus:outline-none"
+                className="m-3 inline-flex resize-none justify-center rounded-xl bg-[#6096B4] px-4 py-3 text-white transition duration-500 ease-in-out hover:bg-[#93BFCF] focus:outline-none"
               >
                 <span className="font-bold">Send</span>
                 <svg
