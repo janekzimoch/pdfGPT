@@ -6,9 +6,11 @@ export default function MessageInputField({ onMessageSent }) {
   const [currentValue, setCurrentValue] = useState(""); // you can manage data with it
 
   useEffect(() => {
+    const screenSize = window.innerHeight;
     textareaRef.current.style.height = "0px";
     const scrollHeight = textareaRef.current.scrollHeight;
-    textareaRef.current.style.height = scrollHeight + "px";
+    textareaRef.current.style.height =
+      Math.min(scrollHeight, 0.3 * screenSize) + "px";
   }, [currentValue]);
 
   const buttonClicked = () => {
@@ -29,7 +31,7 @@ export default function MessageInputField({ onMessageSent }) {
               onChange={(e) => {
                 setCurrentValue(e.target.value);
               }}
-              className="relative my-3 ml-8 w-full resize-none bg-transparent focus:placeholder-gray-400 focus:outline-none"
+              className="relative my-3 ml-8 w-full resize-none overflow-auto bg-transparent scrollbar focus:placeholder-gray-400 focus:outline-none"
             />
             <div className="relative right-0 top-0 hidden sm:flex">
               <button
