@@ -18,6 +18,7 @@ export default function Home() {
       client: "user",
       time: 1000, // TBD
       message: text,
+      paragraphs: [],
     };
     setChat((chat) => [...chat, usr_msg]);
     console.log("1");

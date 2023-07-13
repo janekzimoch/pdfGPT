@@ -55,8 +55,11 @@ def send_message():
             print('score: ', scr)
             print(doc.page_content, '\n')
         prompt = formulate_prompt(query, docs_with_score)
+        paragraphs = [{'paragraph': doc.page_content}
+                      for doc, scr in docs_with_score]
     else:
         prompt = message['message']['message']
+        paragraphs = []
     print(prompt)
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -67,6 +70,7 @@ def send_message():
         "client": "chat",
         "time": 1000,
         "message": response_content,
+        "paragraphs": paragraphs
     }
     return json.dumps(chat_msg)
 

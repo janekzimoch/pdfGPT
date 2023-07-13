@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UploadFile from "./uploadFile";
+import CloseButton from "./closeButton";
 
 export default function UploadFileModal({ add_document }) {
   const [showModal, setShowModal] = React.useState(false);
@@ -55,8 +56,8 @@ export default function UploadFileModal({ add_document }) {
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
             <div className="relative mx-auto my-6 w-1/2 max-w-3xl">
-              <div className="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
-                <div className="relative flex-auto p-6">
+              <div className="relative flex w-full flex-col rounded-2xl border-0 bg-white shadow-lg outline-none focus:outline-none">
+                <div className="relative flex-auto p-6 pb-4 pt-12">
                   <UploadFile
                     selectedFiles={selectedFile}
                     isFilePicked={isFilePicked}
@@ -64,17 +65,12 @@ export default function UploadFileModal({ add_document }) {
                     isLoading={isLoading}
                   />
                 </div>
-                <div className="flex items-center justify-end rounded-b border-t border-solid border-slate-200 p-6">
+                <div className="absolute right-2 top-2 h-auto w-8">
+                  <CloseButton disabled={isLoading} handleClose={handleClose} />
+                </div>
+                <div className="mb-4 mr-10 flex flex-row justify-end">
                   <button
-                    className="background-transparent mb-1 mr-1 px-6 py-2 text-sm font-bold uppercase text-red-500 outline-none transition-all duration-150 ease-linear focus:outline-none"
-                    type="button"
-                    disabled={isLoading}
-                    onClick={handleClose}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="mb-1 mr-1 rounded bg-emerald-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-emerald-600"
+                    className="h-10 rounded-xl bg-[#6096B4] px-4 py-2 font-bold text-white hover:bg-[#93BFCF]"
                     type="button"
                     disabled={isLoading}
                     onClick={handleSubmission}

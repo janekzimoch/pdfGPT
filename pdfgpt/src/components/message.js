@@ -2,13 +2,20 @@
 import Image from "next/image";
 import pdfgpt from "../../public/pdfgpt.png";
 import user_icon from "../../public/user_icon.png";
+import { useState } from "react";
+import MessageModal from "./messageModal";
 
 export default function Message(props) {
+  const [showModal, setShowModal] = useState(false);
   const is_chat = props.msg.client === "chat";
   const justify_style = is_chat ? "justify-start" : "justify-end";
   const rounded_none = is_chat ? "bl" : "br";
   const order_msg = is_chat ? "order-2" : "order-1";
   const order_icon = is_chat ? "order-1" : "order-2";
+
+  function closeModal() {
+    setShowModal(false);
+  }
 
   return (
     <>
@@ -19,7 +26,7 @@ export default function Message(props) {
           <div
             className={`${order_msg} mx-2 flex max-w-xs flex-col space-y-2 text-xs`}
           >
-            <div>
+            <div onClick={() => setShowModal(true)}>
               <span
                 className={`inline-block rounded-lg ${
                   props.is_last_message ? `rounded-${rounded_none}-none` : ""
@@ -44,6 +51,12 @@ export default function Message(props) {
           )}
         </div>
       </div>
+      {showModal ? (
+        <MessageModal
+          paragraphs={props.msg.paragraphs}
+          closeModal={closeModal}
+        />
+      ) : null}
     </>
   );
 }

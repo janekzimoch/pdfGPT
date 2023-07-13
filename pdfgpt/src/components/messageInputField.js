@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function MessageInputField({ onMessageSent }) {
   const textareaRef = useRef(null);
+  const sendButtonRef = useRef(null);
   const [currentValue, setCurrentValue] = useState(""); // you can manage data with it
 
   useEffect(() => {
@@ -13,9 +14,26 @@ export default function MessageInputField({ onMessageSent }) {
       Math.min(scrollHeight, 0.3 * screenSize) + "px";
   }, [currentValue]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter" && event.target === textareaRef.current) {
+        if (!event.shiftKey) {
+          event.preventDefault(); // Prevent line break in textarea
+          sendButtonRef.current.click();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const buttonClicked = () => {
-    onMessageSent(currentValue);
-    setCurrentValue("");
+    if (currentValue.length > 0) {
+      onMessageSent(currentValue);
+      setCurrentValue("");
+    }
   };
 
   return (
@@ -37,6 +55,7 @@ export default function MessageInputField({ onMessageSent }) {
               <button
                 type="button"
                 onClick={buttonClicked}
+                ref={sendButtonRef}
                 className="m-3 inline-flex resize-none justify-center rounded-xl bg-[#6096B4] px-4 py-3 text-white transition duration-500 ease-in-out hover:bg-[#93BFCF] focus:outline-none"
               >
                 <span className="font-bold">Send</span>
