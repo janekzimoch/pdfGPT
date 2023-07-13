@@ -35,6 +35,7 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     }).then((response) => response.json());
+    console.log(chat_msg.paragraphs);
     setChat((chat) => [...chat, chat_msg]);
   }
 
@@ -87,7 +88,7 @@ export default function Home() {
         {/* this empty div below is needed to fill up left most column of 4 */}
         <div></div>
         <div className="col-span-2">
-          <div className="relative h-[95%]">
+          <div className="relative h-[90%]">
             <div className="absolute inset-0 w-full items-center overflow-auto rounded-2xl bg-gray-100 bg-opacity-50 scrollbar">
               <div className="relative h-full max-h-[50%] min-h-[20%] w-full flex-col px-10 py-5">
                 {chat.map((msg, i) => (

@@ -1,5 +1,6 @@
 import pypdf
 import fitz
+from langchain.schema import Document
 
 
 def remove_footnote(text):
@@ -31,7 +32,8 @@ def read_PDF_PyPDF(pdfFileObj):
 def remove_end_of_lines(list_of_texts):
     num_chunks = len(list_of_texts)
     for n in range(num_chunks):
-        list_of_texts[n] = list_of_texts[n].replace('\n', ' ')
+        list_of_texts[n]['content'] = list_of_texts[n]['content'].replace(
+            '\n', ' ')
     return list_of_texts
 
 
@@ -41,25 +43,35 @@ def remove_short_chunks(list_of_texts):
     There will be some false positives i.e. poorly cut paragraph across pages, where 2nd part is very short.
     but we can fix that later, and those should be in minority. '''
     new_list = []
-    for text in list_of_texts:
-        if len(text) > 100:
-            new_list.append(text)
+    for paragraph in list_of_texts:
+        if len(paragraph['content']) > 100:
+            new_list.append(paragraph)
     return new_list
 
 
-def read_PDF_PyMuPDF(path_to_pdf):
+def read_PDF_PyMuPDF(path_to_pdf, filename):
     ''' this tool is better than pypdf because it keeps the paragraph structure of the document. 
     And it makes sense to embed paragraphs into vectors, as paragraphs encompas some semantic substance. '''
     doc = fitz.open(path_to_pdf)
     num_pages = len(doc)
     list_of_texts = []
-    print(num_pages)
     for n in range(num_pages):
         page = doc[n]
         text = page.get_text("blocks")
+        print(path_to_pdf)
         for chunk in text:
-            list_of_texts.append(chunk[4])
+            list_of_texts.append({
+                'content': chunk[4],
+                'page': n,
+                'title': filename
+            })
     return list_of_texts
+
+
+def append_metadata(list_of_texts):
+    list_of_documents = [
+        Document(page_content=par['content'], metadata={'page': par['page'], 'title': par['title']}) for par in list_of_texts]
+    return list_of_documents
 
 
 def combine_text(list_of_texts):

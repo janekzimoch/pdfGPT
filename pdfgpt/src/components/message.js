@@ -26,15 +26,27 @@ export default function Message(props) {
           <div
             className={`${order_msg} mx-2 flex max-w-xs flex-col space-y-2 text-xs`}
           >
-            <div onClick={() => setShowModal(true)}>
-              <span
-                className={`inline-block rounded-lg ${
-                  props.is_last_message ? `rounded-${rounded_none}-none` : ""
-                } bg-gray-300 px-4 py-2 text-gray-600`}
-              >
-                <p className="break-all">{props.msg.message}</p>
-              </span>
-            </div>
+            {is_chat ? (
+              <div onClick={() => setShowModal(true)}>
+                <span
+                  className={`inline-block rounded-lg ${
+                    props.is_last_message ? `rounded-${rounded_none}-none` : ""
+                  } bg-[#BDCDD6] px-4 py-2 text-gray-600 hover:bg-[#93BFCF]`}
+                >
+                  <p className="break-all">{props.msg.message}</p>
+                </span>
+              </div>
+            ) : (
+              <div>
+                <span
+                  className={`inline-block rounded-lg ${
+                    props.is_last_message ? `rounded-${rounded_none}-none` : ""
+                  } bg-gray-300 px-4 py-2 text-gray-600`}
+                >
+                  <p className="break-all">{props.msg.message}</p>
+                </span>
+              </div>
+            )}
           </div>
           {props.is_last_message ? (
             <Image

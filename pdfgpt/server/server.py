@@ -44,7 +44,6 @@ def send_message():
     print(FAISS_SAVE_DIR)
     print(len(FAISS_SAVE_DIR))
     if len(FAISS_SAVE_DIR) != 0:
-        print('using faiss')
         vectorstores = [FAISS.load_local(faiss_dir, embeddings)
                         for faiss_dir in FAISS_SAVE_DIR]
         docsearch = functools.reduce(lambda x, y: (
@@ -55,7 +54,7 @@ def send_message():
             print('score: ', scr)
             print(doc.page_content, '\n')
         prompt = formulate_prompt(query, docs_with_score)
-        paragraphs = [{'paragraph': doc.page_content}
+        paragraphs = [{'paragraph': doc.page_content, 'page': doc.metadata['page'], 'title': doc.metadata['title']}
                       for doc, scr in docs_with_score]
     else:
         prompt = message['message']['message']
@@ -80,12 +79,13 @@ def upload_document():
     pdf_files = eval(request.data.decode("utf-8"))
     faiss_paths = []
     for pdf_file, pdf_name in zip(pdf_files['filepath'], pdf_files['filename']):
-        list_of_texts = utils.read_PDF_PyMuPDF(pdf_file)
+        list_of_texts = utils.read_PDF_PyMuPDF(pdf_file, pdf_name)
         list_of_texts = utils.remove_end_of_lines(list_of_texts)
         list_of_texts = utils.remove_short_chunks(list_of_texts)
-        print('Number of paragraphs loaded: ', len(list_of_texts))
+        list_of_documents = utils.append_metadata(list_of_texts)
+        print('Number of paragraphs loaded: ', len(list_of_documents))
         print('creating FAISS...')
-        docsearch: FAISS = FAISS.from_texts(list_of_texts, embeddings)
+        docsearch: FAISS = FAISS.from_documents(list_of_documents, embeddings)
         FAISS_SAVE_DIR = f"./public/FAISS/{pdf_name}"
         print(FAISS_SAVE_DIR, '\n')
         docsearch.save_local(FAISS_SAVE_DIR)
