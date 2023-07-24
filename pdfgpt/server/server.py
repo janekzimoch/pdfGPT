@@ -1,13 +1,13 @@
 import os
 import openai
 import json
-import pypdf
 from flask import Flask, request
 from dotenv import load_dotenv, find_dotenv
 import shutil
 import functools
 
 import utils
+import parse_pdf_V2 as parser
 from langchain.vectorstores.faiss import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -20,7 +20,7 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 app = Flask(__name__)
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-mpnet-base-v2")
-K = 5
+K = 8
 
 
 def formulate_prompt(query, docs_with_score):
@@ -79,10 +79,11 @@ def upload_document():
     pdf_files = eval(request.data.decode("utf-8"))
     faiss_paths = []
     for pdf_file, pdf_name in zip(pdf_files['filepath'], pdf_files['filename']):
-        list_of_texts = utils.read_PDF_PyMuPDF(pdf_file, pdf_name)
-        list_of_texts = utils.remove_end_of_lines(list_of_texts)
-        list_of_texts = utils.remove_short_chunks(list_of_texts)
+
+        list_of_texts = parser.get_paragraphs(pdf_file, pdf_name, long=False)
+        # list_of_documents = utils.get_paragraphs(pdf_file, pdf_name)
         list_of_documents = utils.append_metadata(list_of_texts)
+
         print('Number of paragraphs loaded: ', len(list_of_documents))
         print('creating FAISS...')
         docsearch: FAISS = FAISS.from_documents(list_of_documents, embeddings)

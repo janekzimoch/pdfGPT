@@ -9,7 +9,7 @@ import UploadedDocument from "../components/uploadedDocument";
 export default function Home() {
   const [chat, setChat] = useState([]);
   const [documents, setDocuments] = useState([]);
-  const [faiss, setFaiss] = useState([]);
+  // const [faiss, setFaiss] = useState([]);
 
   // message functionality
   async function onMessageSent(text) {
@@ -21,15 +21,10 @@ export default function Home() {
       paragraphs: [],
     };
     setChat((chat) => [...chat, usr_msg]);
-    console.log("1");
-    console.log(faiss);
     const chat_msg = await fetch("/api/message", {
       method: "POST",
       body: JSON.stringify({
         message: usr_msg,
-        FAISS: {
-          FAISS_SAVE_DIR: faiss,
-        },
       }),
       headers: {
         "Content-Type": "application/json",
@@ -51,17 +46,22 @@ export default function Home() {
   }
 
   // document functionality
-  function remove_document(index) {
-    console.log(faiss);
+  async function remove_document(index) {
+    const filename = documents[index];
+    // update database
+    const result = await fetch("api/document", {
+      method: "PUT",
+      body: JSON.stringify({
+        filename: filename,
+      }),
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     // remove document at 'index'
     var doc_array = documents.filter((doc, i) => i != index);
     setDocuments(doc_array);
-    // TBD - ideally i would like to delete faiss from the directory
-    // fs.rmSync(faiss[index], { recursive: true, force: true });
-    // rimraf(faiss[index]);
-    var faiss_array = faiss.filter((doc, i) => i != index);
-    setFaiss(faiss_array);
-    console.log(faiss);
   }
 
   async function add_document(formData, fileNames) {
@@ -77,9 +77,7 @@ export default function Home() {
       });
 
     // add document to the document list
-    console.log(result.FAISS_SAVE_DIR);
     setDocuments([...documents, ...fileNames]);
-    setFaiss([...faiss, ...result.FAISS_SAVE_DIR]);
   }
 
   return (

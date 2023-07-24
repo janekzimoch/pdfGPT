@@ -33,7 +33,7 @@ export default function Message(props) {
                     props.is_last_message ? `rounded-${rounded_none}-none` : ""
                   } bg-[#BDCDD6] px-4 py-2 text-gray-600 hover:bg-[#93BFCF]`}
                 >
-                  <p className="break-all">{props.msg.message}</p>
+                  <p className="break-words">{props.msg.message}</p>
                 </span>
               </div>
             ) : (
