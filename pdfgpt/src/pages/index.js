@@ -9,7 +9,9 @@ import UploadedDocument from "../components/uploadedDocument";
 export default function Home() {
   const [chat, setChat] = useState([]);
   const [documents, setDocuments] = useState([]);
-  // const [faiss, setFaiss] = useState([]);
+  useEffect(() => {
+    get_documents();
+  }, []);
 
   // message functionality
   async function onMessageSent(text) {
@@ -48,33 +50,38 @@ export default function Home() {
   // document functionality
   async function remove_document(index) {
     const filename = documents[index];
+    // remove document at 'index'
+    var doc_array = documents.filter((doc, i) => i != index);
+    setDocuments(doc_array);
     // update database
-    const result = await fetch("api/document", {
+    const result = await fetch("api/document_remove", {
       method: "PUT",
       body: JSON.stringify({
         filename: filename,
       }),
     })
       .then((response) => response.json())
+      .catch((error) => console.error("Error:", error));
+  }
+
+  async function get_documents() {
+    await fetch("api/document_get")
+      .then((response) => response.json())
+      .then((result) => setDocuments(result["unique_titles"]))
       .catch((error) => {
         console.error("Error:", error);
       });
-    // remove document at 'index'
-    var doc_array = documents.filter((doc, i) => i != index);
-    setDocuments(doc_array);
   }
 
   async function add_document(formData, fileNames) {
     // send POST request to update FAISS
     console.log(formData);
-    const result = await fetch("api/document", {
+    const result = await fetch("api/document_upload", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .catch((error) => console.error("Error:", error));
 
     // add document to the document list
     setDocuments([...documents, ...fileNames]);
