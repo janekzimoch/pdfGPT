@@ -22,7 +22,7 @@ export default function Home() {
       paragraphs: [],
     };
     setChat((chat) => [...chat, usr_msg]);
-    const chat_msg = await fetch("/api/message", {
+    const chat_msg = await fetch("http://127.0.0.1:5328/api/message", {
       method: "POST",
       body: JSON.stringify(usr_msg),
       headers: {
@@ -47,6 +47,8 @@ export default function Home() {
   // document functionality
   async function remove_document(index) {
     const filename = documents[index];
+    console.log(filename);
+    console.log(typeof filename);
     // remove document at 'index'
     var doc_array = documents.filter((doc, i) => i != index);
     setDocuments(doc_array);
@@ -54,16 +56,19 @@ export default function Home() {
     const request_body = {
       filename: filename,
     };
-    const result = await fetch("api/document_remove", {
+    const result = await fetch("http://127.0.0.1:5328/api/document", {
       method: "PUT",
       body: JSON.stringify(request_body),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => response.json())
       .catch((error) => console.error("Error:", error));
   }
 
   async function get_documents() {
-    await fetch("api/document_get")
+    await fetch("http://127.0.0.1:5328/api/document")
       .then((response) => response.json())
       .then((result) => setDocuments(result["unique_titles"]))
       .catch((error) => {
@@ -74,7 +79,7 @@ export default function Home() {
   async function add_document(formData, fileNames) {
     // send POST request to update FAISS
     console.log(formData);
-    const result = await fetch("api/document_upload", {
+    const result = await fetch("http://127.0.0.1:5328/api/document", {
       method: "POST",
       body: formData,
     })

@@ -27,9 +27,13 @@ export default function UploadFileModal({ add_document }) {
     const formData = new FormData();
     const file_names = selectedFile.map((x) => x.name);
     selectedFile.forEach((file) => {
-      formData.append("file", file);
+      formData.append("files", file);
     });
-
+    console.log(selectedFile);
+    console.log(formData);
+    console.log(formData.get("files"));
+    // const file_names = selectedFile.map((x) => x.name);
+    // await add_document(selectedFile, file_names);
     await add_document(formData, file_names);
     setShowModal(false);
     setIsLoading(false);

@@ -9,6 +9,4 @@ RUN pip install --no-cache-dir -r /code/requirements.txt
 COPY ./app /code/app
 
 CMD ["uvicorn", "app.server:app", "--host", "0.0.0.0", "--port", "5328"]
-
-# If running behind a proxy like Nginx or Traefik add --proxy-headers
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--proxy-headers"]
+# run outside of docker: uvicorn app.server:app --port 5328 

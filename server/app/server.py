@@ -7,8 +7,8 @@ import functools
 import app.utils as utils
 import app.parse_pdf as parser
 
-from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
 from dotenv import load_dotenv, find_dotenv
@@ -21,8 +21,22 @@ _ = load_dotenv(find_dotenv())  # read local .env file
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 
-# app = Flask(__name__)
 app = FastAPI()
+
+# Set allowed origins and HTTP methods for CORS
+origins = [
+    "http://localhost",
+    "http://localhost:3000",  # Replace with your frontend URL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # create supbabase client using sqlalchemy
 TABLE_NAME = 'documents'
@@ -106,8 +120,6 @@ async def send_message(message: Message):
 async def remove_document(request_body: DocumentName):
     print(request_body)
     user = utils.user_login(supabase)
-    # request_body = eval(request.data.decode("utf-8"))
-    # request_body = eval(request_body)
     data = supabase.table(TABLE_NAME).delete().eq(
         "title", request_body.filename).execute()
     # 6. sent response to front end client
@@ -116,11 +128,13 @@ async def remove_document(request_body: DocumentName):
 
 
 @app.post('/api/document')
-async def upload_document(request_body: Documents):
-    print(request_body)
+async def upload_document(files: List[UploadFile] = File(...)):
     user = utils.user_login(supabase)
-    # request_body = eval(request.data.decode("utf-8"))
-    for pdf_file, pdf_name in zip(request_body.filepath, request_body.filename):
+    for file in files:
+        pdf_name = file.filename
+        pdf_file = 'temp.pdf'
+        with open(pdf_file, "wb") as f:
+            f.write(await file.read())
         # 1. convert documents to paragraphs
         text_objects = parser.get_paragraphs(
             pdf_file, pdf_name, long=True)
@@ -131,10 +145,13 @@ async def upload_document(request_body: Documents):
         # 4. combine data
         text_objects = [dict(item, embedding=embed, session_id=0, user_id=user.user.id)
                         for item, embed in zip(text_objects, embeddings)]
+        # remove temorary file
+        os.remove(pdf_file)
     # 5. save to the database
     data = supabase.table(TABLE_NAME).insert(text_objects).execute()
     # 6. sent response to front end client
     utils.user_logout(supabase, key)
+
     return {'success'}
 
 
@@ -146,7 +163,3 @@ async def get_documents():
     unique_titles = list({par['title'] for par in text_objects})
     utils.user_logout(supabase, key)
     return {'unique_titles': unique_titles}
-
-
-# if __name__ == '__main__':
-#     app.run(port=os.environ.get("BACKEND_PORT"))
