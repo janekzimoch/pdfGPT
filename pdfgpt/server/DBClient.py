@@ -28,18 +28,18 @@ class DBClient():
         return wraper
 
     @_open_close_connection
-    def query(self, query, conn):
-        ''' Executres any sql query. '''
-        result_proxy = conn.execute(query)
-        result = [dict(row) for row in result_proxy]
-        return result
-
-    @_open_close_connection
     def query_to_df(self, query, conn):
         print(query)
         print(conn)
         df = pd.read_sql_query(query, conn)
         return df
+
+    @_open_close_connection
+    def query(self, query, conn):
+        ''' Executres any sql query. '''
+        result_proxy = conn.execute(query)
+        result = [dict(row) for row in result_proxy]
+        return result
 
     @_open_close_connection
     def delete(self, table_name, conn):

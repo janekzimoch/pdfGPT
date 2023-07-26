@@ -103,6 +103,10 @@ def combine_lines_into_paragraphs(lines, title, long):
                     continue
                 else:
                     new_paragraph['content'] += space + line['content']
+    # filter out super short paragraphs
+    print(paragraphs[:10])
+    paragraphs = [par for par in paragraphs if len(par['content']) > 10]
+    print(paragraphs[:20])
     return paragraphs
 
 

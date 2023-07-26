@@ -28,7 +28,7 @@ key: str = os.environ.get("DB_SUPABASE_KEY")
 supabase: Client = create_client(url, key)
 
 # create hugging face sentence-transformer model
-K = 8
+K = 12
 embedding_model = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-mpnet-base-v2")
 
@@ -118,7 +118,7 @@ def upload_document():
         for pdf_file, pdf_name in zip(request_body['filepath'], request_body['filename']):
             # 1. convert documents to paragraphs
             text_objects = parser.get_paragraphs(
-                pdf_file, pdf_name, long=False)
+                pdf_file, pdf_name, long=True)
             # 2. collect metadata
             texts, metadata = utils.get_metadata(text_objects)
             # 3. create embeddings

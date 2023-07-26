@@ -25,7 +25,7 @@ def user_logout(supabase, key):
     postgrest_client.auth(key)
 
 
-def is_not_empty():
+def is_not_empty(supabase):
     data = supabase.table("documents").select("id").execute()
     return len(data.data) > 0
 

@@ -1,9 +1,10 @@
-Flask==2.2.3
 fastapi==0.97.0
 uvicorn==0.22.0
+pydantic==1.10.9
 langchain==0.0.242
 numpy==1.23.4
 openai==0.27.8
+sentence-transformers==2.2.2
 PyMuPDF==1.22.3
 python-dotenv==1.0.0
 supabase==1.0.3

@@ -18,16 +18,13 @@ export default function Home() {
     console.log(text);
     const usr_msg = {
       client: "user",
-      time: 1000, // TBD
       message: text,
       paragraphs: [],
     };
     setChat((chat) => [...chat, usr_msg]);
     const chat_msg = await fetch("/api/message", {
       method: "POST",
-      body: JSON.stringify({
-        message: usr_msg,
-      }),
+      body: JSON.stringify(usr_msg),
       headers: {
         "Content-Type": "application/json",
       },
@@ -54,11 +51,12 @@ export default function Home() {
     var doc_array = documents.filter((doc, i) => i != index);
     setDocuments(doc_array);
     // update database
+    const request_body = {
+      filename: filename,
+    };
     const result = await fetch("api/document_remove", {
       method: "PUT",
-      body: JSON.stringify({
-        filename: filename,
-      }),
+      body: JSON.stringify(request_body),
     })
       .then((response) => response.json())
       .catch((error) => console.error("Error:", error));
