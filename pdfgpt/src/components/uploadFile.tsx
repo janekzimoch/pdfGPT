@@ -1,11 +1,23 @@
 import LoadingSpinner from "./loadingSpinner";
 
+type VoidFunction = () => void;
+interface MyFile extends File {
+  lastModifiedDate: any;
+}
+
+interface PropTypes {
+  selectedFiles: MyFile[];
+  isFilePicked: boolean;
+  changeHandler: VoidFunction;
+  isLoading: boolean;
+}
+
 export default function UploadFile({
   selectedFiles,
   isFilePicked,
   changeHandler,
   isLoading,
-}) {
+}: PropTypes) {
   // const field_style = isFilePicked ? "justify-top" : "justify-center";
   const shadow = isLoading ? "bg-gray-100 opacity-70" : "";
 
@@ -84,9 +96,10 @@ export default function UploadFile({
 
 const units = ["bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
 
-function niceBytes(x) {
-  let l = 0,
-    n = parseInt(x, 10) || 0;
+function niceBytes(x: number) {
+  const x_str = String(x);
+  let l: number = 0;
+  let n: number = parseInt(x_str, 10) || 0;
 
   while (n >= 1024 && ++l) {
     n = n / 1024;
