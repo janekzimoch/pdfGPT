@@ -2,11 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import pdfgpt from "../../public/pdfgpt.png";
-import UploadFileModal from "./uploadFileModal";
-import { useState } from "react";
+import Signout from "../components/navbar_components/signout";
+import UserIcon from "../components/navbar_components/userIcon";
+import { useContext } from "react";
+import { UserContext } from "./contexts/userContext";
 
-export default function Menu() {
+export default function Menu({ signOut }) {
   const route = useRouter();
+  const { user, setUser } = useContext(UserContext);
+  console.log(user);
 
   return (
     <div>
@@ -18,18 +22,14 @@ export default function Menu() {
               pdfGPT
             </span>
           </span>
-          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="mr-10 mt-4 flex flex-col">
-              <li>
-                {/* <Link
-                  href={"/"}
-                  className="rounded-xl bg-sky-500 px-4 py-2 font-bold text-white hover:bg-sky-400"
-                >
-                  Upload document
-                </Link> */}
-              </li>
-            </ul>
-          </div>
+          {user == null ? (
+            ""
+          ) : (
+            <div className="mr-5 flex flex-row">
+              <UserIcon email={user.email} />
+              <Signout signOut={signOut} />
+            </div>
+          )}
         </div>
       </nav>
     </div>
