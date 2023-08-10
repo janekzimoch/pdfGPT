@@ -1,0 +1,1082 @@
+{
+ "Resources": {
+  "pdfgptVPCB4E7E9C2": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/Resource"
+   }
+  },
+  "pdfgptVPCPublicSubnet1Subnet92F67487": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      0,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.0.0/18",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/Subnet"
+   }
+  },
+  "pdfgptVPCPublicSubnet1RouteTable3C848597": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTable"
+   }
+  },
+  "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPublicSubnet1RouteTable3C848597"
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPublicSubnet1Subnet92F67487"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTableAssociation"
+   }
+  },
+  "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "pdfgptVPCIGWBF4083CF"
+    },
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPublicSubnet1RouteTable3C848597"
+    }
+   },
+   "DependsOn": [
+    "pdfgptVPCVPCGW7888BF47"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/DefaultRoute"
+   }
+  },
+  "pdfgptVPCPublicSubnet1EIP2E92A470": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/EIP"
+   }
+  },
+  "pdfgptVPCPublicSubnet1NATGatewayC159689C": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "pdfgptVPCPublicSubnet1EIP2E92A470",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPublicSubnet1Subnet92F67487"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet1"
+     }
+    ]
+   },
+   "DependsOn": [
+    "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A",
+    "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet1/NATGateway"
+   }
+  },
+  "pdfgptVPCPublicSubnet2Subnet5A1B1383": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      1,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.64.0/18",
+    "MapPublicIpOnLaunch": true,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Public"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Public"
+     },
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/Subnet"
+   }
+  },
+  "pdfgptVPCPublicSubnet2RouteTable9DCADB72": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTable"
+   }
+  },
+  "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPublicSubnet2RouteTable9DCADB72"
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPublicSubnet2Subnet5A1B1383"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTableAssociation"
+   }
+  },
+  "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "pdfgptVPCIGWBF4083CF"
+    },
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPublicSubnet2RouteTable9DCADB72"
+    }
+   },
+   "DependsOn": [
+    "pdfgptVPCVPCGW7888BF47"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/DefaultRoute"
+   }
+  },
+  "pdfgptVPCPublicSubnet2EIP09338686": {
+   "Type": "AWS::EC2::EIP",
+   "Properties": {
+    "Domain": "vpc",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/EIP"
+   }
+  },
+  "pdfgptVPCPublicSubnet2NATGatewayD8E8067A": {
+   "Type": "AWS::EC2::NatGateway",
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "pdfgptVPCPublicSubnet2EIP09338686",
+      "AllocationId"
+     ]
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPublicSubnet2Subnet5A1B1383"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PublicSubnet2"
+     }
+    ]
+   },
+   "DependsOn": [
+    "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A",
+    "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PublicSubnet2/NATGateway"
+   }
+  },
+  "pdfgptVPCPrivateSubnet1Subnet63397C6B": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      0,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.128.0/18",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1/Subnet"
+   }
+  },
+  "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTable"
+   }
+  },
+  "pdfgptVPCPrivateSubnet1RouteTableAssociationA6BC6E4E": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A"
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPrivateSubnet1Subnet63397C6B"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTableAssociation"
+   }
+  },
+  "pdfgptVPCPrivateSubnet1DefaultRoute2D7FBFB5": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "pdfgptVPCPublicSubnet1NATGatewayC159689C"
+    },
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet1/DefaultRoute"
+   }
+  },
+  "pdfgptVPCPrivateSubnet2Subnet255DE9BE": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "AvailabilityZone": {
+     "Fn::Select": [
+      1,
+      {
+       "Fn::GetAZs": ""
+      }
+     ]
+    },
+    "CidrBlock": "10.0.192.0/18",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "Private"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Private"
+     },
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2/Subnet"
+   }
+  },
+  "pdfgptVPCPrivateSubnet2RouteTable61674652": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTable"
+   }
+  },
+  "pdfgptVPCPrivateSubnet2RouteTableAssociationE39E6C0E": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPrivateSubnet2RouteTable61674652"
+    },
+    "SubnetId": {
+     "Ref": "pdfgptVPCPrivateSubnet2Subnet255DE9BE"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTableAssociation"
+   }
+  },
+  "pdfgptVPCPrivateSubnet2DefaultRouteCB01CB37": {
+   "Type": "AWS::EC2::Route",
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "pdfgptVPCPublicSubnet2NATGatewayD8E8067A"
+    },
+    "RouteTableId": {
+     "Ref": "pdfgptVPCPrivateSubnet2RouteTable61674652"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/PrivateSubnet2/DefaultRoute"
+   }
+  },
+  "pdfgptVPCIGWBF4083CF": {
+   "Type": "AWS::EC2::InternetGateway",
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/pdfgptVPC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/IGW"
+   }
+  },
+  "pdfgptVPCVPCGW7888BF47": {
+   "Type": "AWS::EC2::VPCGatewayAttachment",
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "pdfgptVPCIGWBF4083CF"
+    },
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptVPC/VPCGW"
+   }
+  },
+  "pdfgptECSCluster509E5892": {
+   "Type": "AWS::ECS::Cluster",
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptECSCluster/Resource"
+   }
+  },
+  "CDKFargateECSTaskRolePolicy4B470B69": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CDKFargateECSTaskRolePolicy4B470B69",
+    "Roles": [
+     "ecsTaskExecutionRole"
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/CDKFargateECSTaskRole/Policy/Resource"
+   }
+  },
+  "pdfgptCDKFargateECSTask2F3BDBF3": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Essential": true,
+      "Image": "889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt:latest",
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C"
+        },
+        "awslogs-stream-prefix": "pdfgpt_container",
+        "awslogs-region": {
+         "Ref": "AWS::Region"
+        }
+       }
+      },
+      "Name": "CDKFargateContainer",
+      "PortMappings": [
+       {
+        "ContainerPort": 5328,
+        "HostPort": 5328,
+        "Protocol": "tcp"
+       }
+      ]
+     }
+    ],
+    "Cpu": "512",
+    "ExecutionRoleArn": "arn:aws:iam::889024833665:role/ecsTaskExecutionRole",
+    "Family": "FastApiFargateStackpdfgptCDKFargateECSTaskED663AB8",
+    "Memory": "2048",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "TaskRoleArn": "arn:aws:iam::889024833665:role/ecsTaskExecutionRole"
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptCDKFargateECSTask/Resource"
+   }
+  },
+  "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C": {
+   "Type": "AWS::Logs::LogGroup",
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Resource"
+   }
+  },
+  "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroupPolicyResourcePolicy5A7387D7": {
+   "Type": "AWS::Logs::ResourcePolicy",
+   "Properties": {
+    "PolicyDocument": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"Statement\":[{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"889024833665\"},\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C",
+         "Arn"
+        ]
+       },
+       "\"}],\"Version\":\"2012-10-17\"}"
+      ]
+     ]
+    },
+    "PolicyName": "FastApiFargateStackpdfgptCDKFargateECSTaskCDKFargateContainerLogGroupPolicyA39CECBD"
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Policy/ResourcePolicy"
+   }
+  },
+  "pdfgptFastAPIServiceLBC3B10467": {
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+   "Properties": {
+    "LoadBalancerAttributes": [
+     {
+      "Key": "deletion_protection.enabled",
+      "Value": "false"
+     }
+    ],
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Fn::GetAtt": [
+       "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33",
+       "GroupId"
+      ]
+     }
+    ],
+    "Subnets": [
+     {
+      "Ref": "pdfgptVPCPublicSubnet1Subnet92F67487"
+     },
+     {
+      "Ref": "pdfgptVPCPublicSubnet2Subnet5A1B1383"
+     }
+    ],
+    "Type": "application"
+   },
+   "DependsOn": [
+    "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A",
+    "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9",
+    "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A",
+    "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/Resource"
+   }
+  },
+  "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatically created Security Group for ELB FastApiFargateStackpdfgptFastAPIServiceLB68F11810",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow from anyone on port 80",
+      "FromPort": 80,
+      "IpProtocol": "tcp",
+      "ToPort": 80
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/Resource"
+   }
+  },
+  "pdfgptFastAPIServiceLBSecurityGrouptoFastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33532806CB8A7F": {
+   "Type": "AWS::EC2::SecurityGroupEgress",
+   "Properties": {
+    "Description": "Load balancer to target",
+    "DestinationSecurityGroupId": {
+     "Fn::GetAtt": [
+      "pdfgptFastAPIServiceSecurityGroup13DD00C1",
+      "GroupId"
+     ]
+    },
+    "FromPort": 5328,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "ToPort": 5328
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/to FastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33:5328"
+   }
+  },
+  "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3": {
+   "Type": "AWS::ElasticLoadBalancingV2::Listener",
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "pdfgptFastAPIServiceLBC3B10467"
+    },
+    "Port": 80,
+    "Protocol": "HTTP"
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/Resource"
+   }
+  },
+  "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA": {
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+   "Properties": {
+    "Port": 80,
+    "Protocol": "HTTP",
+    "TargetGroupAttributes": [
+     {
+      "Key": "stickiness.enabled",
+      "Value": "false"
+     }
+    ],
+    "TargetType": "ip",
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/ECSGroup/Resource"
+   }
+  },
+  "pdfgptFastAPIServiceF5DD27AC": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": {
+     "Ref": "pdfgptECSCluster509E5892"
+    },
+    "DeploymentConfiguration": {
+     "Alarms": {
+      "AlarmNames": [],
+      "Enable": false,
+      "Rollback": false
+     },
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DesiredCount": 1,
+    "EnableECSManagedTags": false,
+    "HealthCheckGracePeriodSeconds": 60,
+    "LaunchType": "FARGATE",
+    "LoadBalancers": [
+     {
+      "ContainerName": "CDKFargateContainer",
+      "ContainerPort": 5328,
+      "TargetGroupArn": {
+       "Ref": "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA"
+      }
+     }
+    ],
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "pdfgptFastAPIServiceSecurityGroup13DD00C1",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       {
+        "Ref": "pdfgptVPCPrivateSubnet1Subnet63397C6B"
+       },
+       {
+        "Ref": "pdfgptVPCPrivateSubnet2Subnet255DE9BE"
+       }
+      ]
+     }
+    },
+    "TaskDefinition": {
+     "Ref": "pdfgptCDKFargateECSTask2F3BDBF3"
+    }
+   },
+   "DependsOn": [
+    "CDKFargateECSTaskRolePolicy4B470B69",
+    "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA",
+    "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/Service/Service"
+   }
+  },
+  "pdfgptFastAPIServiceSecurityGroup13DD00C1": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "VpcId": {
+     "Ref": "pdfgptVPCB4E7E9C2"
+    }
+   },
+   "DependsOn": [
+    "CDKFargateECSTaskRolePolicy4B470B69"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/Resource"
+   }
+  },
+  "pdfgptFastAPIServiceSecurityGroupfromFastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C85328C3D5E4D2": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "Load balancer to target",
+    "FromPort": 5328,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "pdfgptFastAPIServiceSecurityGroup13DD00C1",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33",
+      "GroupId"
+     ]
+    },
+    "ToPort": 5328
+   },
+   "DependsOn": [
+    "CDKFargateECSTaskRolePolicy4B470B69"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/from FastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C8:5328"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31SQW7CMBB8C3fjQnvhSilFSKiNCOKKHGcJW4Id2WsQivL3Og4hKa168ux4Np7ZzTOfTPhoIC52KNPjMMeElzEJeWSe2pUgn3m5LSSb7dU2mrHIJTnK2CUKqOY6tNaOYCOSHDq+46bWaomCUKu7uAbzZVQfH4IWguAiriwyePaw+/BSERiPW0Hj5FZNyXs9nEARi0E6g3RdGO2K4OFfYp4ZsPYXvVSBrxhIy8tZ7qx/vVa18F2YTNSp7PEN9qiwzfTIaEUCFZged+uNwZxRNnNqYMVQnHgZaT/ckLBBFct15m2sdHYPccdrsNoZCV3TTyZE2BWC6vFZPi0Kz4YNrLRIX0UulIT0wRLkwhLK3CuSoECVnf0v8He3aQz16r4O/bzUTdPi3v3Gv+y32ubqlVV1D1fffDoqHPUDhn1olYapViy60kGrpxc+HvHxePBlEYfGKcIT8HVzfgPbmoYf5wIAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "pdfgptFastAPIServiceLoadBalancerDNS85C589A8": {
+   "Value": {
+    "Fn::GetAtt": [
+     "pdfgptFastAPIServiceLBC3B10467",
+     "DNSName"
+    ]
+   }
+  },
+  "pdfgptFastAPIServiceServiceURLBC902FBD": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "pdfgptFastAPIServiceLBC3B10467",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  },
+  "pdfgptCDKFargateLoadBalancerDNS": {
+   "Value": {
+    "Fn::GetAtt": [
+     "pdfgptFastAPIServiceLBC3B10467",
+     "DNSName"
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

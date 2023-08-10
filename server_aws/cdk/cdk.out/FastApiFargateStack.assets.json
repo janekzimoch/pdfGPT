@@ -1,0 +1,19 @@
+{
+  "version": "32.0.0",
+  "files": {
+    "00b845b4060d030897f0bd32b06381cd9ed7eb85a8f5ab6197501ec6711c9fc6": {
+      "source": {
+        "path": "FastApiFargateStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "00b845b4060d030897f0bd32b06381cd9ed7eb85a8f5ab6197501ec6711c9fc6.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

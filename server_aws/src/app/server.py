@@ -1,13 +1,16 @@
+from fastapi.security import HTTPAuthorizationCredentials
+import jwt
 import os
 import openai
-import json
-import shutil
-import functools
+import time
 
 import app.utils as utils
 import app.parse_pdf as parser
+from app.auth_utils import (access_token, get_user_id)
 
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Depends, Request
+from fastapi.security import OAuth2PasswordBearer
+from fastapi.exceptions import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from pydantic import BaseModel
@@ -23,10 +26,14 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 
 app = FastAPI()
 
+
 # Set allowed origins and HTTP methods for CORS
 origins = [
     "http://localhost",
     "http://localhost:3000",  # Replace with your frontend URL
+    "https://pdf-19uaagrks-janekzimoch.vercel.app",
+    "http://0.0.0.0",
+    "http://0.0.0.0:3000",
 ]
 
 app.add_middleware(
@@ -66,8 +73,18 @@ class DocumentName(BaseModel):
     filename: str
 
 
+@app.get("/")
+async def health_check():
+    return {"status": "root healthy"}
+
+
+@app.get("/health")
+async def health_check():
+    return {"status": "health healthy"}
+
+
 @app.post('/api/message')
-async def send_message(message: Message):
+async def send_message(message: Message, token: str = Depends(access_token)):
     ''' 1. load data from the DB
     2. retirve embeddings
     3. create the FAISS
@@ -76,7 +93,7 @@ async def send_message(message: Message):
     '''
     # message = eval(request.data.decode("utf-8"))
     print(message)
-    user = utils.user_login(supabase)
+    utils.user_login(supabase, token)
     if utils.is_not_empty(supabase):
         # 1. load data from DB
         data = supabase.table(TABLE_NAME).select("*").execute()
@@ -117,9 +134,9 @@ async def send_message(message: Message):
 
 
 @app.put('/api/document')
-async def remove_document(request_body: DocumentName):
+async def remove_document(request_body: DocumentName, token: str = Depends(access_token)):
     print(request_body)
-    user = utils.user_login(supabase)
+    utils.user_login(supabase, token)
     data = supabase.table(TABLE_NAME).delete().eq(
         "title", request_body.filename).execute()
     # 6. sent response to front end client
@@ -128,8 +145,12 @@ async def remove_document(request_body: DocumentName):
 
 
 @app.post('/api/document')
-async def upload_document(files: List[UploadFile] = File(...)):
-    user = utils.user_login(supabase)
+# , user_id: str = Depends(get_user_id)
+async def upload_document(files: List[UploadFile] = File(...), token: str = Depends(access_token)):
+    print('token: ', token)
+    user_id = 'a6c4bdc0-72c5-4b49-b5ca-876a5d6f686c'
+    print('user_id: ', user_id)
+    utils.user_login(supabase, token)
     for file in files:
         pdf_name = file.filename
         pdf_file = 'temp.pdf'
@@ -143,7 +164,7 @@ async def upload_document(files: List[UploadFile] = File(...)):
         # 3. create embeddings
         embeddings = embedding_model.embed_documents(texts)
         # 4. combine data
-        text_objects = [dict(item, embedding=embed, session_id=0, user_id=user.user.id)
+        text_objects = [dict(item, embedding=embed, session_id=0, user_id=user_id)
                         for item, embed in zip(text_objects, embeddings)]
         # remove temorary file
         os.remove(pdf_file)
@@ -151,13 +172,12 @@ async def upload_document(files: List[UploadFile] = File(...)):
     data = supabase.table(TABLE_NAME).insert(text_objects).execute()
     # 6. sent response to front end client
     utils.user_logout(supabase, key)
-
     return {'success'}
 
 
 @app.get('/api/document')
-async def get_documents():
-    user = utils.user_login(supabase)
+async def get_documents(token: str = Depends(access_token)):
+    utils.user_login(supabase, token)
     data = supabase.table(TABLE_NAME).select('*').execute()
     text_objects = data.data
     unique_titles = list({par['title'] for par in text_objects})

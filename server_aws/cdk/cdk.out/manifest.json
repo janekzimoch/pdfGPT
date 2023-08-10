@@ -1,0 +1,324 @@
+{
+  "version": "32.0.0",
+  "artifacts": {
+    "FastApiFargateStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "FastApiFargateStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "FastApiFargateStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "FastApiFargateStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/00b845b4060d030897f0bd32b06381cd9ed7eb85a8f5ab6197501ec6711c9fc6.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "FastApiFargateStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "FastApiFargateStack.assets"
+      ],
+      "metadata": {
+        "/FastApiFargateStack/pdfgptVPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCB4E7E9C2"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1Subnet92F67487"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1RouteTable3C848597"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1EIP2E92A470"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet1NATGatewayC159689C"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2Subnet5A1B1383"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2RouteTable9DCADB72"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2EIP09338686"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPublicSubnet2NATGatewayD8E8067A"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet1Subnet63397C6B"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet1RouteTableAssociationA6BC6E4E"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet1DefaultRoute2D7FBFB5"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet2Subnet255DE9BE"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet2RouteTable61674652"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet2RouteTableAssociationE39E6C0E"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCPrivateSubnet2DefaultRouteCB01CB37"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCIGWBF4083CF"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptVPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptVPCVPCGW7888BF47"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptECSCluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptECSCluster509E5892"
+          }
+        ],
+        "/FastApiFargateStack/CDKFargateECSTaskRole/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKFargateECSTaskRolePolicy4B470B69"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptCDKFargateECSTask/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptCDKFargateECSTask2F3BDBF3"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "Proper policies need to be attached before pulling from ECR repository, or use 'fromEcrRepository'.",
+            "trace": [
+              "Annotations.addMessage (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-q223FP/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1071)",
+              "Annotations.addWarning (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-q223FP/node_modules/aws-cdk-lib/core/lib/annotations.js:1:504)",
+              "RepositoryImage.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-q223FP/node_modules/aws-cdk-lib/aws-ecs/lib/images/repository.js:1:1129)",
+              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-q223FP/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:2908)",
+              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-q223FP/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmph8to4y21/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Policy/ResourcePolicy": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroupPolicyResourcePolicy5A7387D7"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLBC3B10467"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/to FastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33:5328": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLBSecurityGrouptoFastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33532806CB8A7F"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceLoadBalancerDNS85C589A8"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceServiceURLBC902FBD"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceF5DD27AC"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceSecurityGroup13DD00C1"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/from FastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C8:5328": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptFastAPIServiceSecurityGroupfromFastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C85328C3D5E4D2"
+          }
+        ],
+        "/FastApiFargateStack/pdfgptCDKFargateLoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "pdfgptCDKFargateLoadBalancerDNS"
+          }
+        ],
+        "/FastApiFargateStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/FastApiFargateStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/FastApiFargateStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/FastApiFargateStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "FastApiFargateStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

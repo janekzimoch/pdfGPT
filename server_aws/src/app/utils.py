@@ -3,24 +3,22 @@ from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())  # read local .env file
 
 
-def user_login(supabase):
+def user_login(supabase, token):
     ''' Once i create frontend for user authentication, user credentials will be passed via request
     This sounds like a sensitive topic so i will need to be careful. 
     '''
-    random_email: str = "janekzimoch@gmail.com"
-    random_password: str = os.environ["DB_SUPABASE_PASSWORD"]
-    user = supabase.auth.sign_in_with_password(
-        {"email": random_email, "password": random_password})
+    # random_email: str = "janekzimoch@gmail.com"
+    # random_password: str = os.environ["DB_SUPABASE_PASSWORD"]
+    # user = supabase.auth.sign_in_with_password(
+    #     {"email": random_email, "password": random_password})
     # set the right key to enable RSL - security
     postgrest_client = supabase.postgrest
-    postgrest_client.auth(user.session.access_token)
-    return user
+    postgrest_client.auth(token)
 
 
 def user_logout(supabase, key):
     ''' user login and logout should be created as decorators. I will change that later when code is more mature. '''
     # after running queries - exceute this
-    supabase.auth.sign_out()
     postgrest_client = supabase.postgrest
     postgrest_client.auth(key)
 
