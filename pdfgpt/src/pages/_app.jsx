@@ -5,11 +5,10 @@ import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import { createClient } from "@supabase/supabase-js";
 import { UserContext } from "../components/contexts/userContext";
-import { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect } from "react";
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   const [user, setUser] = useState(null);
-  const [userSession, setUserSession] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -24,15 +23,12 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
 
   async function updateUserState(getUser) {
     getUser().then((user_obj) => {
-      // console.log("inside useEffect: ");
-      // console.log(user_obj.data.user);
       setUser(user_obj.data.user);
     });
   }
 
   async function getUser() {
     const user = await supabase.auth.getUser();
-    console.log(user);
     return user;
   }
 
@@ -70,7 +66,6 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
         <Component
           {...pageProps}
           supabase={supabase}
-          session={userSession}
           updateSessionState={updateSessionState}
           sessionStatusRedirect={sessionStatusRedirect}
           navbarHeight={navbarHeight}

@@ -6,19 +6,34 @@ import { useState, useEffect } from "react";
 import UploadFileModal from "../components/uploadFileModal";
 import UploadedDocument from "../components/uploadedDocument";
 
-const HOST_IP = "http://localhost:5328";
+const HOST_IP = "http://127.0.0.1:5328"; //"http://localhost:5328";
 // "http://FastA-pdfgp-1ACE4VO8EB979-1556534170.eu-north-1.elb.amazonaws.com"; //"http://localhost:5328"; //http://0.0.0.0:5328"; //"http://127.0.0.1:5328"
 
 export default function App() {
   const [chat, setChat] = useState([]);
+  const [bearerToken, setBearerToken] = useState(null);
   const [documents, setDocuments] = useState([]);
+
   useEffect(() => {
-    get_documents();
+    const userAuth = JSON.parse(
+      window.localStorage.getItem(
+        `sb-${process.env.NEXT_PUBLIC_DB_SUPABASE_URL_CORE}-auth-token`
+      )
+    );
+    const user_token = userAuth.access_token;
+    setBearerToken("Bearer " + user_token);
   }, []);
+
+  useEffect(() => {
+    if (bearerToken) {
+      console.log("berer token: ");
+      console.log(bearerToken);
+      get_documents();
+    }
+  }, [bearerToken]);
 
   // message functionality
   async function onMessageSent(text) {
-    console.log(text);
     const usr_msg = {
       client: "user",
       message: text,
@@ -30,9 +45,9 @@ export default function App() {
       body: JSON.stringify(usr_msg),
       headers: {
         "Content-Type": "application/json",
+        Authorization: bearerToken,
       },
     }).then((response) => response.json());
-    console.log(chat_msg.paragraphs);
     setChat((chat) => [...chat, chat_msg]);
   }
 
@@ -50,8 +65,6 @@ export default function App() {
   // document functionality
   async function remove_document(index) {
     const filename = documents[index];
-    console.log(filename);
-    console.log(typeof filename);
     // remove document at 'index'
     var doc_array = documents.filter((doc, i) => i != index);
     setDocuments(doc_array);
@@ -64,6 +77,7 @@ export default function App() {
       body: JSON.stringify(request_body),
       headers: {
         "Content-Type": "application/json",
+        Authorization: bearerToken,
       },
     })
       .then((response) => response.json())
@@ -71,7 +85,13 @@ export default function App() {
   }
 
   async function get_documents() {
-    await fetch(`${HOST_IP}/api/document`)
+    await fetch(`${HOST_IP}/api/document`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: bearerToken,
+      },
+    })
       .then((response) => response.json())
       .then((result) => setDocuments(result["unique_titles"]))
       .catch((error) => {
@@ -85,10 +105,12 @@ export default function App() {
     const result = await fetch(`${HOST_IP}/api/document`, {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: bearerToken,
+      },
     })
       .then((response) => response.json())
       .catch((error) => console.error("Error:", error));
-
     // add document to the document list
     setDocuments([...documents, ...fileNames]);
   }
