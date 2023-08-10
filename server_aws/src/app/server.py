@@ -147,8 +147,6 @@ async def remove_document(request_body: DocumentName, token: str = Depends(acces
 @app.post('/api/document')
 # , user_id: str = Depends(get_user_id)
 async def upload_document(files: List[UploadFile] = File(...), token: str = Depends(access_token), user_id: str = Depends(get_user_id)):
-    print('token: ', token)
-    print('user_id: ', user_id)
     utils.user_login(supabase, token)
     for file in files:
         pdf_name = file.filename
