@@ -7,10 +7,6 @@ def user_login(supabase, token):
     ''' Once i create frontend for user authentication, user credentials will be passed via request
     This sounds like a sensitive topic so i will need to be careful. 
     '''
-    # random_email: str = "janekzimoch@gmail.com"
-    # random_password: str = os.environ["DB_SUPABASE_PASSWORD"]
-    # user = supabase.auth.sign_in_with_password(
-    #     {"email": random_email, "password": random_password})
     # set the right key to enable RSL - security
     postgrest_client = supabase.postgrest
     postgrest_client.auth(token)

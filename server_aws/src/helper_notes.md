@@ -48,10 +48,14 @@ docker rmi pdfgpt_server
 
 ### here is how to push docker image to ECR
 
+##### creating container and adding it to ECR
+
 1. authenticate your user
    1.1. aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 889024833665.dkr.ecr.eu-north-1.amazonaws.com
-2. create private repository for the project's images in ECR
+2. create private repository for the project's images in ECR - done in AWS ECR GUI
 3. tag your docker image you want to push
-   3.1. docker tag c67601cf2d4c 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt:latest
+   3.1. docker tag dcceea649ba0 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt:latest
 4. push the docker into ECR
    4.1. docker push 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt
+
+##### running container in ECS
