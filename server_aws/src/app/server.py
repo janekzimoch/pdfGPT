@@ -33,11 +33,11 @@ origins = [
     "http://localhost:3000",  # Replace with your frontend URL
     "https://pdf-gpt-eta.vercel.app",
     "http://pdf-gpt-eta.vercel.app",
-    "gptlegal.net",
-    "www.gptlegal.net",
-    "http://gptlegal.net"
-    "https://gptlegal.net"
-    "http://www.gptlegal.net"
+    "http://gptlegal.net",
+    "https://gptlegal.net",
+    "http://www.gptlegal.net",
+    "https://www.gptlegal.net",
+    "https://www.gptlegal.net/app",
     "http://0.0.0.0",
     "http://0.0.0.0:3000",
 ]
