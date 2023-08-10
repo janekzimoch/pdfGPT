@@ -6,6 +6,8 @@ import { createClient } from "@supabase/supabase-js";
 import { UserContext } from "../components/contexts/userContext";
 import { useState, useEffect } from "react";
 
+console.log(process.env.NEXT_PUBLIC_DB_SUPABASE_URL);
+
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
@@ -13,6 +15,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   useEffect(() => {
     updateUserState(getUser);
   }, []);
+
+  console.log(process.env.NEXT_PUBLIC_DB_SUPABASE_URL);
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_DB_SUPABASE_URL,
