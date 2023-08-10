@@ -1,6 +1,5 @@
 import "~/styles/globals.css";
 import "~/styles/spinner.css";
-import "~/styles/login.css";
 import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import { createClient } from "@supabase/supabase-js";
