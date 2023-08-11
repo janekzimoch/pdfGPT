@@ -29,8 +29,6 @@ export default function App() {
 
   useEffect(() => {
     if (bearerToken) {
-      console.log("berer token: ");
-      console.log(bearerToken);
       get_documents();
     }
   }, [bearerToken]);
@@ -104,7 +102,6 @@ export default function App() {
 
   async function add_document(formData, fileNames) {
     // send POST request to update FAISS
-    console.log(formData);
     const result = await fetch(`${HOST_IP}/api/document`, {
       method: "POST",
       body: formData,

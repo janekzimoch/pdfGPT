@@ -31,7 +31,13 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000",  # Replace with your frontend URL
-    "https://pdf-19uaagrks-janekzimoch.vercel.app",
+    "https://pdf-gpt-eta.vercel.app",
+    "http://pdf-gpt-eta.vercel.app",
+    "http://gptlegal.net",
+    "https://gptlegal.net",
+    "http://www.gptlegal.net",
+    "https://www.gptlegal.net",
+    "https://www.gptlegal.net/app",
     "http://0.0.0.0",
     "http://0.0.0.0:3000",
 ]

@@ -1,11 +1,12 @@
 import "~/styles/globals.css";
 import "~/styles/spinner.css";
-import "~/styles/login.css";
 import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import { createClient } from "@supabase/supabase-js";
 import { UserContext } from "../components/contexts/userContext";
 import { useState, useEffect } from "react";
+
+console.log(process.env.NEXT_PUBLIC_DB_SUPABASE_URL);
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   const [user, setUser] = useState(null);
@@ -14,6 +15,8 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   useEffect(() => {
     updateUserState(getUser);
   }, []);
+
+  console.log(process.env.NEXT_PUBLIC_DB_SUPABASE_URL);
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_DB_SUPABASE_URL,

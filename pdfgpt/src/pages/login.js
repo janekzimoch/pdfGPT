@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import Image from "next/image";
 import pdfgpt from "../../public/pdfgpt.png";
-import styles from "~/styles/login.module.css"; // Import the CSS module
 
 const brandColor = "#6096B4";
 const brandAccentColor = "#93BFCF";
+const baseUrl = "https://pdf-gpt-eta.vercel.app/"; // http://localhost:3000/
 
 export default function Login({
   supabase,
@@ -38,7 +38,7 @@ export default function Login({
         </span>
         <Auth
           supabaseClient={supabase}
-          redirectTo="http://localhost:3000/"
+          redirectTo={baseUrl}
           providers={[]}
           appearance={{
             theme: ThemeSupa,
