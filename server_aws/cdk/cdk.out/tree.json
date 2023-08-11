@@ -857,6 +857,37 @@
               "version": "2.88.0"
             }
           },
+          "Certificate": {
+            "id": "Certificate",
+            "path": "FastApiFargateStack/Certificate",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "FastApiFargateStack/Certificate/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CertificateManager::Certificate",
+                  "aws:cdk:cloudformation:props": {
+                    "domainName": "api.gptlegal.net",
+                    "tags": [
+                      {
+                        "key": "Name",
+                        "value": "FastApiFargateStack/Certificate"
+                      }
+                    ],
+                    "validationMethod": "DNS"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_certificatemanager.CfnCertificate",
+                  "version": "2.88.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_certificatemanager.Certificate",
+              "version": "2.88.0"
+            }
+          },
           "pdfgptFastAPIService": {
             "id": "pdfgptFastAPIService",
             "path": "FastApiFargateStack/pdfgptFastAPIService",
@@ -917,9 +948,9 @@
                               {
                                 "cidrIp": "0.0.0.0/0",
                                 "ipProtocol": "tcp",
-                                "fromPort": 80,
-                                "toPort": 80,
-                                "description": "Allow from anyone on port 80"
+                                "fromPort": 443,
+                                "toPort": 443,
+                                "description": "Allow from anyone on port 443"
                               }
                             ],
                             "vpcId": {
@@ -977,6 +1008,13 @@
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
                           "aws:cdk:cloudformation:props": {
+                            "certificates": [
+                              {
+                                "certificateArn": {
+                                  "Ref": "Certificate4E7ABB08"
+                                }
+                              }
+                            ],
                             "defaultActions": [
                               {
                                 "type": "forward",
@@ -988,8 +1026,8 @@
                             "loadBalancerArn": {
                               "Ref": "pdfgptFastAPIServiceLBC3B10467"
                             },
-                            "port": 80,
-                            "protocol": "HTTP"
+                            "port": 443,
+                            "protocol": "HTTPS"
                           }
                         },
                         "constructInfo": {
@@ -1007,6 +1045,8 @@
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                               "aws:cdk:cloudformation:props": {
+                                "healthCheckIntervalSeconds": 120,
+                                "healthCheckPath": "/health",
                                 "port": 80,
                                 "protocol": "HTTP",
                                 "targetGroupAttributes": [

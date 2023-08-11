@@ -10,7 +10,7 @@ docker buildx build --platform=linux/amd64 -t pdfgpt_server .
 
 ### run a container
 
-docker run -d --name pdfgpt_server_m1 -p 5328:5328 pdfgpt_server_m1
+docker run -d --name pdfgpt_server -p 5328:5328 pdfgpt_server
 
 ### get constant logs of the docekr
 
@@ -54,8 +54,12 @@ docker rmi pdfgpt_server
    1.1. aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 889024833665.dkr.ecr.eu-north-1.amazonaws.com
 2. create private repository for the project's images in ECR - done in AWS ECR GUI
 3. tag your docker image you want to push
-   3.1. docker tag 26f4b1f61e24 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt:latest
+   3.1. docker tag f44834aea2d2 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt:latest
 4. push the docker into ECR
    4.1. docker push 889024833665.dkr.ecr.eu-north-1.amazonaws.com/pdfgpt
 
 ##### running container in ECS
+
+go to cdk directory
+run with verbose option
+cdk deploy --vv
