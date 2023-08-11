@@ -571,6 +571,22 @@
     "aws:cdk:path": "FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Policy/ResourcePolicy"
    }
   },
+  "Certificate4E7ABB08": {
+   "Type": "AWS::CertificateManager::Certificate",
+   "Properties": {
+    "DomainName": "api.gptlegal.net",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "FastApiFargateStack/Certificate"
+     }
+    ],
+    "ValidationMethod": "DNS"
+   },
+   "Metadata": {
+    "aws:cdk:path": "FastApiFargateStack/Certificate/Resource"
+   }
+  },
   "pdfgptFastAPIServiceLBC3B10467": {
    "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
    "Properties": {
@@ -616,10 +632,10 @@
     "SecurityGroupIngress": [
      {
       "CidrIp": "0.0.0.0/0",
-      "Description": "Allow from anyone on port 80",
-      "FromPort": 80,
+      "Description": "Allow from anyone on port 443",
+      "FromPort": 443,
       "IpProtocol": "tcp",
-      "ToPort": 80
+      "ToPort": 443
      }
     ],
     "VpcId": {
@@ -657,6 +673,13 @@
   "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3": {
    "Type": "AWS::ElasticLoadBalancingV2::Listener",
    "Properties": {
+    "Certificates": [
+     {
+      "CertificateArn": {
+       "Ref": "Certificate4E7ABB08"
+      }
+     }
+    ],
     "DefaultActions": [
      {
       "TargetGroupArn": {
@@ -668,8 +691,8 @@
     "LoadBalancerArn": {
      "Ref": "pdfgptFastAPIServiceLBC3B10467"
     },
-    "Port": 80,
-    "Protocol": "HTTP"
+    "Port": 443,
+    "Protocol": "HTTPS"
    },
    "Metadata": {
     "aws:cdk:path": "FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/Resource"
@@ -678,6 +701,8 @@
   "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA": {
    "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
    "Properties": {
+    "HealthCheckIntervalSeconds": 120,
+    "HealthCheckPath": "/health",
     "Port": 80,
     "Protocol": "HTTP",
     "TargetGroupAttributes": [
@@ -809,7 +834,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31SQW7CMBB8C3fjQnvhSilFSKiNCOKKHGcJW4Id2WsQivL3Og4hKa168ux4Np7ZzTOfTPhoIC52KNPjMMeElzEJeWSe2pUgn3m5LSSb7dU2mrHIJTnK2CUKqOY6tNaOYCOSHDq+46bWaomCUKu7uAbzZVQfH4IWguAiriwyePaw+/BSERiPW0Hj5FZNyXs9nEARi0E6g3RdGO2K4OFfYp4ZsPYXvVSBrxhIy8tZ7qx/vVa18F2YTNSp7PEN9qiwzfTIaEUCFZged+uNwZxRNnNqYMVQnHgZaT/ckLBBFct15m2sdHYPccdrsNoZCV3TTyZE2BWC6vFZPi0Kz4YNrLRIX0UulIT0wRLkwhLK3CuSoECVnf0v8He3aQz16r4O/bzUTdPi3v3Gv+y32ubqlVV1D1fffDoqHPUDhn1olYapViy60kGrpxc+HvHxePBlEYfGKcIT8HVzfgPbmoYf5wIAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/31Sy07DMBD8Fu6uoXDptRSoKlUQNYgr2rjbsNS1I3vdqory7zhJ8+AhTp4dz2Z3Jr6Vs5m8uYKTn6jtfqIpk2XKoPYiUu8lqltZvhVKLHbmLVmIJGSaVBoyg1xzA9rYwPgKmcaBH7i591YRMFnTi2vwuErq4xl4CYwnOIvE0THC4cMrw+gi7gTtJpdqznHXjwMaFimq4IjPS2dD0ezwL/GYO/T+F70yDV8JVF6WCx18nF6rOvgELofald8/4I4MdZ5+MtYwkEE34i69KbojqTanFlaC4CDLxMZwG4ctqoS2eVxjbfPeRI836G1wCoem70wlFDqmHak48gAGcnTR0cA1roaysfxeANdxezkvCl3zce+1he09aDAKtz8soAbPpHRUZI2CTH6MT+bvbtcaGNVjHcV8zUXT4dH9a5wcX0GXw6isqj6M+uYlcBF4HEjj1Jpt8xcqkZz5w5rrOzm9kdPp1acnmrhgmA4oN+35BS3Qim4XAwAA"
    },
    "Metadata": {
     "aws:cdk:path": "FastApiFargateStack/CDKMetadata/Default"
@@ -831,7 +856,7 @@
     "Fn::Join": [
      "",
      [
-      "http://",
+      "https://",
       {
        "Fn::GetAtt": [
         "pdfgptFastAPIServiceLBC3B10467",

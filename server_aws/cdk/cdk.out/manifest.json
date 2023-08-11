@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/00b845b4060d030897f0bd32b06381cd9ed7eb85a8f5ab6197501ec6711c9fc6.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bd2a0aaa44795ae31374b544913f3d1f3d9b6b7b17580caa4711909a1c5e47bd.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -36,157 +36,499 @@
         "/FastApiFargateStack/pdfgptVPC/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCB4E7E9C2"
+            "data": "pdfgptVPCB4E7E9C2",
+            "trace": [
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:9948)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1Subnet92F67487"
+            "data": "pdfgptVPCPublicSubnet1Subnet92F67487",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:19794)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1RouteTable3C848597"
+            "data": "pdfgptVPCPublicSubnet1RouteTable3C848597",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20429)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9"
+            "data": "pdfgptVPCPublicSubnet1RouteTableAssociationF9F374B9",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20560)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A"
+            "data": "pdfgptVPCPublicSubnet1DefaultRoute0EEE785A",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20883)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12286",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12250)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/EIP": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1EIP2E92A470"
+            "data": "pdfgptVPCPublicSubnet1EIP2E92A470",
+            "trace": [
+              "PublicSubnet.addNatGateway (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24578)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2150)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet1/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet1NATGatewayC159689C"
+            "data": "pdfgptVPCPublicSubnet1NATGatewayC159689C",
+            "trace": [
+              "PublicSubnet.addNatGateway (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24472)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2150)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2Subnet5A1B1383"
+            "data": "pdfgptVPCPublicSubnet2Subnet5A1B1383",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:19794)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2RouteTable9DCADB72"
+            "data": "pdfgptVPCPublicSubnet2RouteTable9DCADB72",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20429)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4"
+            "data": "pdfgptVPCPublicSubnet2RouteTableAssociation8230B5D4",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20560)",
+              "new PublicSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24203)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15816",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A"
+            "data": "pdfgptVPCPublicSubnet2DefaultRouteD0527F6A",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20883)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12286",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12250)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/EIP": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2EIP09338686"
+            "data": "pdfgptVPCPublicSubnet2EIP09338686",
+            "trace": [
+              "PublicSubnet.addNatGateway (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24578)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2150)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PublicSubnet2/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPublicSubnet2NATGatewayD8E8067A"
+            "data": "pdfgptVPCPublicSubnet2NATGatewayD8E8067A",
+            "trace": [
+              "PublicSubnet.addNatGateway (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:24472)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2150)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet1Subnet63397C6B"
+            "data": "pdfgptVPCPrivateSubnet1Subnet63397C6B",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:19794)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A"
+            "data": "pdfgptVPCPrivateSubnet1RouteTable9C4D7B8A",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20429)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet1RouteTableAssociationA6BC6E4E"
+            "data": "pdfgptVPCPrivateSubnet1RouteTableAssociationA6BC6E4E",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20560)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet1DefaultRoute2D7FBFB5"
+            "data": "pdfgptVPCPrivateSubnet1DefaultRoute2D7FBFB5",
+            "trace": [
+              "PrivateSubnet.addRoute (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:21704)",
+              "NatGatewayProvider.configureSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2400)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2282)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet2Subnet255DE9BE"
+            "data": "pdfgptVPCPrivateSubnet2Subnet255DE9BE",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:19794)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet2RouteTable61674652"
+            "data": "pdfgptVPCPrivateSubnet2RouteTable61674652",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20429)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet2RouteTableAssociationE39E6C0E"
+            "data": "pdfgptVPCPrivateSubnet2RouteTableAssociationE39E6C0E",
+            "trace": [
+              "new Subnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:20560)",
+              "new PrivateSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:25242)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:16046",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:15089)",
+              "Vpc.createSubnets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14958)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11724)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/PrivateSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCPrivateSubnet2DefaultRouteCB01CB37"
+            "data": "pdfgptVPCPrivateSubnet2DefaultRouteCB01CB37",
+            "trace": [
+              "PrivateSubnet.addRoute (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:21704)",
+              "NatGatewayProvider.configureSubnet (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2400)",
+              "NatGatewayProvider.configureNat (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/nat.js:1:2282)",
+              "Vpc.createNatGateways (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:14343)",
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12418)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/IGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCIGWBF4083CF"
+            "data": "pdfgptVPCIGWBF4083CF",
+            "trace": [
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:11976)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptVPC/VPCGW": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptVPCVPCGW7888BF47"
+            "data": "pdfgptVPCVPCGW7888BF47",
+            "trace": [
+              "new Vpc (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/vpc.js:1:12118)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptECSCluster/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptECSCluster509E5892"
+            "data": "pdfgptECSCluster509E5892",
+            "trace": [
+              "new Cluster (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/cluster.js:1:3341)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/CDKFargateECSTaskRole/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CDKFargateECSTaskRolePolicy4B470B69"
+            "data": "CDKFargateECSTaskRolePolicy4B470B69",
+            "trace": [
+              "new Policy (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-iam/lib/policy.js:1:1305)",
+              "ImportedRole.addToPrincipalPolicy (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-iam/lib/private/imported-role.js:1:1158)",
+              "Grant.addToPrincipal (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-iam/lib/grant.js:1:2028)",
+              "Grant.addToPrincipalOrResource (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-iam/lib/grant.js:1:649)",
+              "LogGroup.grant (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:1552)",
+              "LogGroup.grantWrite (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:1286)",
+              "AwsLogDriver.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/log-drivers/aws-log-driver.js:1:1334)",
+              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:3042)",
+              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptCDKFargateECSTask/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptCDKFargateECSTask2F3BDBF3"
+            "data": "pdfgptCDKFargateECSTask2F3BDBF3",
+            "trace": [
+              "new TaskDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:4190)",
+              "new FargateTaskDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/fargate/fargate-task-definition.js:1:1234)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer": [
@@ -194,17 +536,17 @@
             "type": "aws:cdk:warning",
             "data": "Proper policies need to be attached before pulling from ECR repository, or use 'fromEcrRepository'.",
             "trace": [
-              "Annotations.addMessage (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-izDJSh/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1071)",
-              "Annotations.addWarning (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-izDJSh/node_modules/aws-cdk-lib/core/lib/annotations.js:1:504)",
-              "RepositoryImage.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-izDJSh/node_modules/aws-cdk-lib/aws-ecs/lib/images/repository.js:1:1129)",
-              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-izDJSh/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:2908)",
-              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-izDJSh/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
-              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:9769:105",
-              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:10358:28)",
-              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:9769:34)",
-              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:11544:36)",
-              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:11504:22)",
-              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmp22ynsveg/lib/program.js:11505:46)",
+              "Annotations.addMessage (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1071)",
+              "Annotations.addWarning (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/annotations.js:1:504)",
+              "RepositoryImage.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/images/repository.js:1:1129)",
+              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:2908)",
+              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
               "process.processImmediate (node:internal/timers:478:21)"
             ]
           }
@@ -212,103 +554,362 @@
         "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C"
+            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroup0F055D8C",
+            "trace": [
+              "new LogGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:5268)",
+              "AwsLogDriver.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/log-drivers/aws-log-driver.js:1:1243)",
+              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:3042)",
+              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptCDKFargateECSTask/CDKFargateContainer/LogGroup/Policy/ResourcePolicy": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroupPolicyResourcePolicy5A7387D7"
+            "data": "pdfgptCDKFargateECSTaskCDKFargateContainerLogGroupPolicyResourcePolicy5A7387D7",
+            "trace": [
+              "new ResourcePolicy (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/policy.js:1:715)",
+              "LogGroup.addToResourcePolicy (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:1754)",
+              "Grant.addToPrincipalOrResource (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-iam/lib/grant.js:1:1395)",
+              "LogGroup.grant (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:1552)",
+              "LogGroup.grantWrite (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-logs/lib/log-group.js:1:1286)",
+              "AwsLogDriver.bind (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/log-drivers/aws-log-driver.js:1:1334)",
+              "new ContainerDefinition (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/container-definition.js:1:3042)",
+              "FargateTaskDefinition.addContainer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/task-definition.js:1:9008)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
+          }
+        ],
+        "/FastApiFargateStack/Certificate/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Certificate4E7ABB08",
+            "trace": [
+              "new Certificate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-certificatemanager/lib/certificate.js:1:2460)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LB/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLBC3B10467"
+            "data": "pdfgptFastAPIServiceLBC3B10467",
+            "trace": [
+              "new BaseLoadBalancer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-load-balancer.js:1:2363)",
+              "new ApplicationLoadBalancer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:1:1825)",
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:2716)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33"
+            "data": "pdfgptFastAPIServiceLBSecurityGroup2FBB3C33",
+            "trace": [
+              "new SecurityGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:5628)",
+              "new ApplicationLoadBalancer (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:1:2365)",
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:2716)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LB/SecurityGroup/to FastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33:5328": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLBSecurityGrouptoFastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33532806CB8A7F"
+            "data": "pdfgptFastAPIServiceLBSecurityGrouptoFastApiFargateStackpdfgptFastAPIServiceSecurityGroup77860A33532806CB8A7F",
+            "trace": [
+              "SecurityGroup.addEgressRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:1613)",
+              "SecurityGroup.addEgressRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7781)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1747",
+              "ReactiveList.forEachAndForever (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5789)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1708",
+              "ReactiveList.forEachAndForever (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5789)",
+              "Connections.allowTo (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1636)",
+              "Connections.allowFrom (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:2574)",
+              "ApplicationListener.registerConnectable (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:8086)",
+              "ApplicationTargetGroup.registerConnectable (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:1:6380)",
+              "Object.attachToApplicationTargetGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:16340)",
+              "FargateService.attachToApplicationTargetGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:15539)",
+              "ApplicationTargetGroup.addTarget (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:1:4497)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:6524)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:3037)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3"
+            "data": "pdfgptFastAPIServiceLBPublicListenerA9BC5FA3",
+            "trace": [
+              "new BaseListener (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-listener.js:1:1544)",
+              "new ApplicationListener (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:2642)",
+              "ApplicationLoadBalancer.addListener (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-load-balancer.js:1:3388)",
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:3507)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LB/PublicListener/ECSGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA"
+            "data": "pdfgptFastAPIServiceLBPublicListenerECSGroupB151A2AA",
+            "trace": [
+              "new TargetGroupBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/shared/base-target-group.js:1:1192)",
+              "new ApplicationTargetGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:1:3111)",
+              "ApplicationListener.addTargets (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:5927)",
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:3657)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/LoadBalancerDNS": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceLoadBalancerDNS85C589A8"
+            "data": "pdfgptFastAPIServiceLoadBalancerDNS85C589A8",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:5663)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/ServiceURL": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceServiceURLBC902FBD"
+            "data": "pdfgptFastAPIServiceServiceURLBC902FBD",
+            "trace": [
+              "new ApplicationLoadBalancedServiceBase (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:5746)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:601)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/Service/Service": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceF5DD27AC"
+            "data": "pdfgptFastAPIServiceF5DD27AC",
+            "trace": [
+              "new BaseService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:4836)",
+              "new FargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/fargate/fargate-service.js:1:1611)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:2300)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceSecurityGroup13DD00C1"
+            "data": "pdfgptFastAPIServiceSecurityGroup13DD00C1",
+            "trace": [
+              "new SecurityGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:5628)",
+              "FargateService.configureAwsVpcNetworkingWithSecurityGroups (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:22712)",
+              "new FargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/fargate/fargate-service.js:1:2337)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:2300)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptFastAPIService/Service/SecurityGroup/from FastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C8:5328": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptFastAPIServiceSecurityGroupfromFastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C85328C3D5E4D2"
+            "data": "pdfgptFastAPIServiceSecurityGroupfromFastApiFargateStackpdfgptFastAPIServiceLBSecurityGroupC31D71C85328C3D5E4D2",
+            "trace": [
+              "SecurityGroup.addIngressRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:1222)",
+              "SecurityGroup.addIngressRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:6549)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:2449",
+              "ReactiveList.forEachAndForever (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5789)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:2410",
+              "ReactiveList.forEachAndForever (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5789)",
+              "Connections.allowFrom (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:2338)",
+              "ApplicationListener.registerConnectable (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-listener.js:1:8086)",
+              "ApplicationTargetGroup.registerConnectable (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:1:6380)",
+              "Object.attachToApplicationTargetGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:16340)",
+              "FargateService.attachToApplicationTargetGroup (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs/lib/base/base-service.js:1:15539)",
+              "ApplicationTargetGroup.addTarget (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-elasticloadbalancingv2/lib/alb/application-target-group.js:1:4497)",
+              "ApplicationLoadBalancedFargateService.addServiceAsTarget (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/base/application-load-balanced-service-base.js:1:6524)",
+              "new ApplicationLoadBalancedFargateService (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/aws-ecs-patterns/lib/fargate/application-load-balanced-fargate-service.js:1:3037)",
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/pdfgptCDKFargateLoadBalancerDNS": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "pdfgptCDKFargateLoadBalancerDNS"
+            "data": "pdfgptCDKFargateLoadBalancerDNS",
+            "trace": [
+              "Kernel._create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9964:29)",
+              "Kernel.create (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9693:29)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CDKMetadata"
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/metadata-resource.js:1:707)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:2847",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:368)",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:330)",
+              "injectMetadataResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:2662)",
+              "synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:1:864)",
+              "App.synth (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stage.js:1:2052)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CDKMetadataAvailable"
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/metadata-resource.js:1:966)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:2847",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:368)",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:330)",
+              "injectMetadataResources (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:2662)",
+              "synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:1:864)",
+              "App.synth (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stage.js:1:2052)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BootstrapVersion"
+            "data": "BootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/stack-synthesizer.js:1:5175)",
+              "DefaultStackSynthesizer.addBootstrapVersionRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/stack-synthesizer.js:1:2881)",
+              "DefaultStackSynthesizer.synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/default-synthesizer.js:1:6088)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:3375",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:368)",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:330)",
+              "synthesizeTree (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:3219)",
+              "synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:1:1083)",
+              "App.synth (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stage.js:1:2052)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ],
         "/FastApiFargateStack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CheckBootstrapVersion"
+            "data": "CheckBootstrapVersion",
+            "trace": [
+              "addBootstrapVersionRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/stack-synthesizer.js:1:5528)",
+              "DefaultStackSynthesizer.addBootstrapVersionRule (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/stack-synthesizer.js:1:2881)",
+              "DefaultStackSynthesizer.synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stack-synthesizers/default-synthesizer.js:1:6088)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:3375",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:368)",
+              "visit (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:4:330)",
+              "synthesizeTree (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:2:3219)",
+              "synthesize (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/private/synthesis.js:1:1083)",
+              "App.synth (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/jsii-kernel-CJcLLr/node_modules/aws-cdk-lib/core/lib/stage.js:1:2052)",
+              "/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:105",
+              "Kernel._ensureSync (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:10358:28)",
+              "Kernel.invoke (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:9769:34)",
+              "KernelHost.processRequest (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11544:36)",
+              "KernelHost.run (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11504:22)",
+              "Immediate._onImmediate (/private/var/folders/70/xy86ymm940796lf7988yvm9h0000gn/T/tmpkotfx6r8/lib/program.js:11505:46)",
+              "process.processImmediate (node:internal/timers:478:21)"
+            ]
           }
         ]
       },
