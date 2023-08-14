@@ -52,10 +52,10 @@ export default function UploadFile({
                       <div className="pb-3">
                         <p>File name: {selectedFile.name}</p>
                         <p>File size: {niceBytes(selectedFile.size)}</p>
-                        <p>
+                        {/* <p>
                           Last modified:{" "}
                           {selectedFile.lastModifiedDate.toLocaleDateString()}
-                        </p>
+                        </p> */}
                       </div>
                     </li>
                   ))}
@@ -63,7 +63,7 @@ export default function UploadFile({
               ) : (
                 <div>
                   <span className="font-semibold">Click to upload</span>
-                  <span> or drag and drop</span>
+                  {/* <span> or drag and drop</span> */}
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     Curently only PDF documents are supported.
                   </p>
