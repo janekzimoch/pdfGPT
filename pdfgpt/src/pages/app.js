@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import UploadFileModal from "../components/uploadFileModal";
 import UploadedDocument from "../components/uploadedDocument";
 
-const HOST_IP =
-  "https://FastA-pdfgp-ZZKVWV11GOA4-556507770.eu-north-1.elb.amazonaws.com";
+const HOST_IP = "https://api.gptlegal.net";
+// "https://FastA-pdfgp-ZZKVWV11GOA4-556507770.eu-north-1.elb.amazonaws.com";
 // "http://FastA-pdfgp-56FP8EVW9HTI-1686140029.eu-north-1.elb.amazonaws.com";
 //"http://127.0.0.1:5328"; //"http://localhost:5328";
 // "http://FastA-pdfgp-1ACE4VO8EB979-1556534170.eu-north-1.elb.amazonaws.com"; //"http://localhost:5328"; //http://0.0.0.0:5328"; //"http://127.0.0.1:5328"

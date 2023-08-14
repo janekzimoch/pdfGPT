@@ -2,7 +2,7 @@ import CloseButton from "./closeButton";
 
 export default function UploadedDocument({ index, doc_name, remove_document }) {
   return (
-    <div className="relative my-2 flex h-fit w-full items-center rounded-md bg-gray-200">
+    <div className="relative my-2 flex h-fit w-full items-center rounded-md bg-gray-200  shadow-md">
       <span className="ml-4 mr-10 break-all">{doc_name}</span>
       <span className="absolute right-1 h-auto w-7">
         <CloseButton handleClose={() => remove_document(index)} />

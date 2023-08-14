@@ -31,7 +31,7 @@ export default function Login({
 
   return (
     <div className="flex items-center justify-center " style={height}>
-      <div className="min-w-[400px] rounded-2xl bg-gray-100 bg-opacity-50 px-20 py-10">
+      <div className="min-w-[400px] rounded-2xl bg-gray-100  bg-opacity-50 px-20 py-10 shadow-xl">
         <span className="mb-5 flex items-center">
           <Image src={pdfgpt} className="mr-3 h-5 w-5" alt="pdfGPT" />
           <p>Sign in to start using pdfGPT </p>

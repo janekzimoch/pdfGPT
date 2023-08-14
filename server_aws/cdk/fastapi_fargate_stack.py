@@ -68,7 +68,6 @@ class FastApiFargateStack(Stack):
                                validation=acm.CertificateValidation.from_dns()
                                )
 
-        # you can choose to specifie either the certificate or zone and domain name
         ecs_service = ecs_patterns.ApplicationLoadBalancedFargateService(
             self,
             "pdfgptFastAPIService",
@@ -77,11 +76,8 @@ class FastApiFargateStack(Stack):
             memory_limit_mib=2048,
             desired_count=1,
             public_load_balancer=True,
-            # protocol=elbv2.ApplicationProtocol.HTTPS,
-            # domain_name=domainName,
-            # domain_zone=route53.HostedZone.from_lookup(self, f"{projectName}-hosted-zone", domain_name=domainName), #zone,
             certificate=cert,
-            # redirect_http=True,
+            redirect_http=True,  # internet says this is recommended but i haven't tried
             task_definition=task_definition,
         )
 
