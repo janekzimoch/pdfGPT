@@ -60,7 +60,7 @@ export default function UploadFileModal({ add_document }) {
         <>
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
             <div className="relative mx-auto my-6 w-1/2 max-w-3xl">
-              <div className="relative flex w-full flex-col rounded-2xl border-0 bg-white shadow-lg outline-none focus:outline-none">
+              <div className="relative flex w-full flex-col rounded-2xl border-0 bg-white  shadow-lg outline-none drop-shadow-md focus:outline-none">
                 <div className="relative flex-auto p-6 pb-4 pt-12">
                   <UploadFile
                     selectedFiles={selectedFile}
