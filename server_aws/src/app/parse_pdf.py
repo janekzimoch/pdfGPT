@@ -21,6 +21,19 @@ def get_page_lines(page):
     return lines, line_numbers
 
 
+def get_doc_pages(doc):
+    ''' returns dict: page: text_on_that_page  '''
+    N = len(doc)
+    doc_pages = {}
+    for n in range(N):
+        page = doc[n]
+        words = page.get_text("words")
+        words = [element[4] for element in words]
+        page_text = ' '.join(words)
+        doc_pages[n] = page_text
+    return doc_pages
+
+
 def get_doc_lines(doc):
     ''' combine all line objects into a single list 
     page count starts from 1 not 0 (thus: n+1 below)
@@ -104,9 +117,7 @@ def combine_lines_into_paragraphs(lines, title, long):
                 else:
                     new_paragraph['content'] += space + line['content']
     # filter out super short paragraphs
-    print(paragraphs[:10])
     paragraphs = [par for par in paragraphs if len(par['content']) > 10]
-    print(paragraphs[:20])
     return paragraphs
 
 
@@ -115,3 +126,8 @@ def get_paragraphs(path_to_pdf, title, long=False):
     doc_lines = get_doc_lines(doc)
     paragraphs = combine_lines_into_paragraphs(doc_lines, title, long)
     return paragraphs
+
+
+def get_pages(path_to_pdf, title):
+    doc = fitz.open(path_to_pdf)
+    return get_doc_pages(doc)

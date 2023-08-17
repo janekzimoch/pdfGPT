@@ -54,7 +54,7 @@ export default function UploadFile({
                         <p>File size: {niceBytes(selectedFile.size)}</p>
                         {/* <p>
                           Last modified:{" "}
-                          {selectedFile.lastModifiedDate.toLocaleDateString()}
+                          {selectedFile.lastModifiedDate.toLocaleDateString()}  // not all broswers suported that so i took it down
                         </p> */}
                       </div>
                     </li>
